@@ -1,4 +1,4 @@
-﻿import streamlit as st
+import streamlit as st
 import streamlit.components.v1 as components
 from openai import OpenAI
 import io
@@ -10,13 +10,13 @@ from fpdf import FPDF
 st.set_page_config(
     page_title="Humanize AI",
     layout="wide",
-    page_icon="??,
+    page_icon="✦",
     initial_sidebar_state="expanded",
 )
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # LANGUAGE STATE
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 if "lang" not in st.session_state:
     st.session_state.lang = "ko"
 
@@ -24,101 +24,101 @@ L_ALL = {
     "ko": {
         # sidebar
         "brand_sub":       "Student Tools Suite",
-        "nav_tools":       "?꾧뎄",
-        "nav_humanizer":   "AI ?멸컙??,
-        "nav_gpa":         "GPA 怨꾩궛湲?,
-        "nav_active":      "?꾩옱",
-        "job_category":    "吏곷Т 移댄뀒怨좊━",
-        "jd_label":        "梨꾩슜 怨듦퀬 JD",
-        "jd_hint":         "?먯냼??紐⑤뱶?먯꽌 ?ъ슜?⑸땲??,
-        "jd_placeholder":  "怨듦퀬 ?꾨Ц??遺숈뿬?ｌ쑝?몄슂...\n?쒓뎅?는룹쁺??紐⑤몢 吏?먰빀?덈떎.",
-        "pipeline_title":  "?뚯씠?꾨씪??,
-        "pipe1":           "寃쏀뿕쨌?ㅼ썙??異붿텧",
-        "pipe2":           "?섎Ⅴ?뚮굹 珥덉븞 ?앹꽦",
-        "pipe3":           "遺덇퇋移숈꽦 二쇱엯",
-        "pipe4":           "?⑺듃 寃??,
+        "nav_tools":       "도구",
+        "nav_humanizer":   "AI 인간화",
+        "nav_gpa":         "GPA 계산기",
+        "nav_active":      "현재",
+        "job_category":    "직무 카테고리",
+        "jd_label":        "채용 공고 JD",
+        "jd_hint":         "자소서 모드에서 사용됩니다",
+        "jd_placeholder":  "공고 전문을 붙여넣으세요...\n한국어·영어 모두 지원합니다.",
+        "pipeline_title":  "파이프라인",
+        "pipe1":           "경험·키워드 추출",
+        "pipe2":           "페르소나 초안 생성",
+        "pipe3":           "불규칙성 주입",
+        "pipe4":           "팩트 검수",
         # header
-        "page_title":      "AI 臾몄꽌 ?멸컙??,
-        "card_humanizer":  "AI ?멸컙??,
-        "card_h_desc":     "?먯냼?쑣텰V쨌?먯꽭?대? AI ?붿쟻 ?놁씠 ?먯뿰?ㅻ읇寃??ъ옉??,
-        "card_h_cta":      "?꾩옱 ?섏씠吏 ??,
-        "card_trans":      "踰덉뿭",
-        "card_t_desc":     "?쒓뎅?????곸뼱 吏곷Т 臾몄꽌 踰덉뿭 (媛??????좉?)",
-        "card_t_cta":      "媛???뿉???ъ슜 媛??,
-        "card_gpa":        "GPA 怨꾩궛湲?,
-        "card_g_desc":     "4.0 / 4.3 ?ㅼ???쨌 臾댁젣??怨쇰ぉ 쨌 紐⑺몴 GPA 怨꾩궛湲?,
-        "card_g_cta":      "諛붾줈 媛湲???,
+        "page_title":      "AI 문서 인간화",
+        "card_humanizer":  "AI 인간화",
+        "card_h_desc":     "자소서·CV·에세이를 AI 흔적 없이 자연스럽게 재작성",
+        "card_h_cta":      "현재 페이지 ↑",
+        "card_trans":      "번역",
+        "card_t_desc":     "한국어 ↔ 영어 직무 문서 번역 (각 탭 내 토글)",
+        "card_t_cta":      "각 탭에서 사용 가능",
+        "card_gpa":        "GPA 계산기",
+        "card_g_desc":     "4.0 / 4.3 스케일 · 무제한 과목 · 목표 GPA 계산기",
+        "card_g_cta":      "바로 가기 →",
         # tabs
-        "tab_cover":       "?뱷  ?먯냼??,
-        "tab_cv":          "?뱞  CV / ?대젰??,
-        "tab_essay":       "?랃툘  ?먯꽭??,
-        "banner_cover":    "?먯냼??紐⑤뱶",
-        "banner_cover_d":  "?ъ씠?쒕컮?먯꽌 梨꾩슜 怨듦퀬瑜??낅젰?섎㈃ <strong>ATS ?ㅼ썙??理쒖쟻??/strong>源뚯? ?④퍡 吏꾪뻾?⑸땲?? AI媛 ??寃?媛숈? ?붿쟻???쒓굅?섍퀬 ?멸컙?곸씤 臾몄껜濡?諛붽퓠?덈떎.",
-        "banner_cv":       "CV / ?대젰??紐⑤뱶",
-        "banner_cv_d":     "遺덈┸ ?ъ씤???뺤떇???좎??섎㈃??<strong>?섎룞???쒗쁽???λ룞 ?숈궗濡?/strong> 諛붽퓠?덈떎. 臾몄옣 湲몄씠瑜??섎룄?곸쑝濡?遺덇퇏?쇳븯寃?留뚮뱾???щ엺??吏곸젒 ??寃껋쿂??蹂댁씠寃??⑸땲??",
-        "banner_essay":    "?먯꽭??紐⑤뱶",
-        "banner_essay_d":  "媛쒖씤 ?먯꽭?댁쓽 <strong>?쒖궗???먮쫫怨?媛먯젙 寃?/strong>???대┰?덈떎. ?ш굔 ??媛먯젙 ??源⑤떖?뚯쓽 援ъ“瑜??좎??섎㈃??AI ?뱀쑀??留ㅻ걚?ъ슫 ?⑦꽩???쒓굅?⑸땲??",
+        "tab_cover":       "📝  자소서",
+        "tab_cv":          "📄  CV / 이력서",
+        "tab_essay":       "✍️  에세이",
+        "banner_cover":    "자소서 모드",
+        "banner_cover_d":  "사이드바에서 채용 공고를 입력하면 <strong>ATS 키워드 최적화</strong>까지 함께 진행됩니다. AI가 쓴 것 같은 흔적을 제거하고 인간적인 문체로 바꿉니다.",
+        "banner_cv":       "CV / 이력서 모드",
+        "banner_cv_d":     "불릿 포인트 형식을 유지하면서 <strong>수동적 표현을 능동 동사로</strong> 바꿉니다. 문장 길이를 의도적으로 불균일하게 만들어 사람이 직접 쓴 것처럼 보이게 합니다.",
+        "banner_essay":    "에세이 모드",
+        "banner_essay_d":  "개인 에세이의 <strong>서사적 흐름과 감정 결</strong>을 살립니다. 사건 → 감정 → 깨달음의 구조를 유지하면서 AI 특유의 매끄러운 패턴을 제거합니다.",
         # mode switch
-        "sw_human":        "???멸컙??,
-        "sw_trans":        "?뙋 踰덉뿭",
+        "sw_human":        "✦ 인간화",
+        "sw_trans":        "🌐 번역",
         # placeholders
-        "ph_cover":        "?쒓뎅???먮뒗 ?곸뼱濡??묒꽦???먯냼??珥덉븞??遺숈뿬?ｌ쑝?몄슂.\n?먮룞?쇰줈 ?몄뼱瑜?媛먯??섏뿬 理쒖쟻?뷀빀?덈떎.",
-        "ph_cv":           "CV ?먮뒗 ?대젰???꾨Ц??遺숈뿬?ｌ쑝?몄슂.\n遺덈┸ ?ъ씤???뺤떇 洹몃?濡?遺숈뿬?ｌ쑝硫??⑸땲??",
-        "ph_essay":        "媛쒖씤 ?먯꽭???먮뒗 Personal Statement瑜?遺숈뿬?ｌ쑝?몄슂.\n?쒖궗 ?먮쫫???대━硫댁꽌 AI ?붿쟻???쒓굅?⑸땲??",
+        "ph_cover":        "한국어 또는 영어로 작성된 자소서 초안을 붙여넣으세요.\n자동으로 언어를 감지하여 최적화합니다.",
+        "ph_cv":           "CV 또는 이력서 전문을 붙여넣으세요.\n불릿 포인트 형식 그대로 붙여넣으면 됩니다.",
+        "ph_essay":        "개인 에세이 또는 Personal Statement를 붙여넣으세요.\n서사 흐름을 살리면서 AI 흔적을 제거합니다.",
         # run buttons
-        "run_cover":       "?먯냼??泥⑥궘 ?쒖옉 ??,
-        "run_cv":          "CV ?멸컙???쒖옉 ??,
-        "run_essay":       "?먯꽭???멸컙???쒖옉 ??,
+        "run_cover":       "자소서 첨삭 시작 →",
+        "run_cv":          "CV 인간화 시작 →",
+        "run_essay":       "에세이 인간화 시작 →",
         # errors
-        "err_no_api":      "?쒕쾭??API ?ㅺ? ?ㅼ젙?섏? ?딆븯?듬땲?? 愿由ъ옄?먭쾶 臾몄쓽?섏꽭??",
-        "err_no_jd":       "?ъ씠?쒕컮?먯꽌 梨꾩슜 怨듦퀬(JD)瑜??낅젰?댁＜?몄슂.",
-        "err_no_text":     "?띿뒪?몃? ?낅젰?댁＜?몄슂.",
+        "err_no_api":      "서버에 API 키가 설정되지 않았습니다. 관리자에게 문의하세요.",
+        "err_no_jd":       "사이드바에서 채용 공고(JD)를 입력해주세요.",
+        "err_no_text":     "텍스트를 입력해주세요.",
         # progress
-        "step1":           "寃쏀뿕쨌?ㅼ썙??異붿텧 以?,
-        "step2":           "?멸컙??珥덉븞 ?앹꽦 以?,
-        "step3":           "遺덇퇋移숈꽦 二쇱엯 以?,
-        "step4":           "?⑺듃 寃??以?,
-        "step_ai":         "AI 媛먯? ?뺣쪧 痢≪젙 以?,
-        "step_ai_pass":    "湲곗?移??듦낵!",
-        "step_ai_retry":   "30% 紐⑺몴 誘몃떖, ?ъ닔??以?..",
+        "step1":           "경험·키워드 추출 중",
+        "step2":           "인간화 초안 생성 중",
+        "step3":           "불규칙성 주입 중",
+        "step4":           "팩트 검수 중",
+        "step_ai":         "AI 감지 확률 측정 중",
+        "step_ai_pass":    "기준치 통과!",
+        "step_ai_retry":   "30% 목표 미달, 재수정 중...",
         # result
-        "done_ok":         "?멸컙???꾨즺",
-        "done_max":        "?멸컙???꾨즺 (理쒕? ?ъ떆???꾨떖)",
-        "score_hist":      "AI ?먯닔 蹂??,
-        "metric_ai":       "AI 媛먯? ?뺣쪧",
-        "metric_ats":      "ATS ?먯닔",
-        "metric_orig":     "?먮낯 湲몄씠",
-        "metric_diff":     "湲몄씠 蹂??,
-        "before_label":    "?먮낯",
-        "before_sub":      "AI 媛먯? ?꾪뿕",
-        "after_label":     "?멸컙??寃곌낵",
-        "after_sub":       "AI ?먯? ?고쉶",
-        "dl_label":        "?ㅼ슫濡쒕뱶",
-        "copy_btn":        "?대┰蹂대뱶 蹂듭궗",
-        "copy_done":       "蹂듭궗 ?꾨즺 ??,
-        "facts_expander":  "異붿텧???ъ떎 ?곗씠??蹂닿린",
-        "char_ko":         "?쒓뎅??,
-        "char_unit":       "??,
+        "done_ok":         "인간화 완료",
+        "done_max":        "인간화 완료 (최대 재시도 도달)",
+        "score_hist":      "AI 점수 변화",
+        "metric_ai":       "AI 감지 확률",
+        "metric_ats":      "ATS 점수",
+        "metric_orig":     "원본 길이",
+        "metric_diff":     "길이 변화",
+        "before_label":    "원본",
+        "before_sub":      "AI 감지 위험",
+        "after_label":     "인간화 결과",
+        "after_sub":       "AI 탐지 우회",
+        "dl_label":        "다운로드",
+        "copy_btn":        "클립보드 복사",
+        "copy_done":       "복사 완료 ✓",
+        "facts_expander":  "추출된 사실 데이터 보기",
+        "char_ko":         "한국어",
+        "char_unit":       "자",
         # translation UI
-        "trans_dir_title": "踰덉뿭 諛⑺뼢 ?좏깮",
-        "trans_ko_en":     "?눖?눟 ?쒓뎅?? ?? ?눣?눡 ?곸뼱",
-        "trans_en_ko":     "?눣?눡 ?곸뼱  ?? ?눖?눟 ?쒓뎅??,
-        "trans_src_label": "?먮Ц 遺숈뿬?ｊ린",
-        "trans_btn":       "踰덉뿭 ?쒖옉",
-        "trans_style":     "臾몄껜",
-        "trans_done":      "踰덉뿭 ?꾨즺",
-        "trans_before":    "?먮Ц",
-        "trans_after":     "踰덉뿭臾?,
-        "trans_err":       "踰덉뿭 ?ㅻ쪟",
-        "trans_running":   "踰덉뿭 以?..",
-        "trans_style_opt": "臾몄껜 理쒖쟻???곸슜 以?,
-        "trans_warn":      "諛⑺뼢 ?뺤씤",
-        "trans_detect":    "媛먯?",
-        "doc_cover":       "?먭린?뚭컻??,
-        "doc_cv":          "?대젰??CV",
-        "doc_essay":       "媛쒖씤 ?먯꽭??,
-        "beta_title":      "踰좏? ?쒕퉬???덈궡",
-        "beta_body":       "?꾩옱 踰좏? 踰꾩쟾?쇰줈 ?댁쁺 以묒엯?덈떎. AI ?멸컙??寃곌낵媛 100% ?꾨꼍?섏? ?딆쓣 ???덉쑝硫? ?쇰? 臾몄옣? ?ъ쟾??AI媛 ?묒꽦??寃껋쿂??媛먯??????덉뒿?덈떎. 寃곌낵臾쇱쓣 諛섎뱶??吏곸젒 寃?????ъ슜??二쇱꽭??",
+        "trans_dir_title": "번역 방향 선택",
+        "trans_ko_en":     "🇰🇷 한국어  →  🇺🇸 영어",
+        "trans_en_ko":     "🇺🇸 영어  →  🇰🇷 한국어",
+        "trans_src_label": "원문 붙여넣기",
+        "trans_btn":       "번역 시작",
+        "trans_style":     "문체",
+        "trans_done":      "번역 완료",
+        "trans_before":    "원문",
+        "trans_after":     "번역문",
+        "trans_err":       "번역 오류",
+        "trans_running":   "번역 중...",
+        "trans_style_opt": "문체 최적화 적용 중",
+        "trans_warn":      "방향 확인",
+        "trans_detect":    "감지",
+        "doc_cover":       "자기소개서",
+        "doc_cv":          "이력서/CV",
+        "doc_essay":       "개인 에세이",
+        "beta_title":      "베타 서비스 안내",
+        "beta_body":       "현재 베타 버전으로 운영 중입니다. AI 인간화 결과가 100% 완벽하지 않을 수 있으며, 일부 문장은 여전히 AI가 작성한 것처럼 감지될 수 있습니다. 결과물을 반드시 직접 검토 후 사용해 주세요.",
     },
     "en": {
         # sidebar
@@ -140,34 +140,34 @@ L_ALL = {
         "page_title":      "AI Document Humanizer",
         "card_humanizer":  "AI Humanizer",
         "card_h_desc":     "Rewrite cover letters, CVs & essays to bypass AI detection",
-        "card_h_cta":      "Current page ??,
+        "card_h_cta":      "Current page ↑",
         "card_trans":      "Translate",
-        "card_t_desc":     "Korean ??English translation for job documents (toggle in each tab)",
+        "card_t_desc":     "Korean ↔ English translation for job documents (toggle in each tab)",
         "card_t_cta":      "Available in each tab",
         "card_gpa":        "GPA Calculator",
-        "card_g_desc":     "4.0 / 4.3 Scale 쨌 Unlimited Courses 쨌 Goal GPA Estimator",
-        "card_g_cta":      "Go ??,
+        "card_g_desc":     "4.0 / 4.3 Scale · Unlimited Courses · Goal GPA Estimator",
+        "card_g_cta":      "Go →",
         # tabs
-        "tab_cover":       "?뱷  Cover Letter",
-        "tab_cv":          "?뱞  CV / Resume",
-        "tab_essay":       "?랃툘  Essay",
+        "tab_cover":       "📝  Cover Letter",
+        "tab_cv":          "📄  CV / Resume",
+        "tab_essay":       "✍️  Essay",
         "banner_cover":    "Cover Letter Mode",
         "banner_cover_d":  "Add a job description in the sidebar to enable <strong>ATS keyword optimization</strong>. Removes AI-written patterns and rewrites in a genuine human voice.",
         "banner_cv":       "CV / Resume Mode",
         "banner_cv_d":     "Preserves bullet-point formatting while converting <strong>passive expressions to strong action verbs</strong>. Intentionally varies sentence length to read like a real person wrote it.",
         "banner_essay":    "Essay Mode",
-        "banner_essay_d":  "Preserves the <strong>narrative arc and emotional tone</strong> of personal essays. Maintains the event ??emotion ??insight structure while removing AI-typical smooth patterns.",
+        "banner_essay_d":  "Preserves the <strong>narrative arc and emotional tone</strong> of personal essays. Maintains the event → emotion → insight structure while removing AI-typical smooth patterns.",
         # mode switch
-        "sw_human":        "??Humanize",
-        "sw_trans":        "?뙋 Translate",
+        "sw_human":        "✦ Humanize",
+        "sw_trans":        "🌐 Translate",
         # placeholders
         "ph_cover":        "Paste your cover letter draft here (English or Korean).\nLanguage is detected automatically.",
         "ph_cv":           "Paste your full CV or resume here.\nBullet-point formatting is preserved.",
         "ph_essay":        "Paste your personal essay or Personal Statement here.\nNarrative flow is preserved while removing AI traces.",
         # run buttons
-        "run_cover":       "Humanize Cover Letter ??,
-        "run_cv":          "Humanize CV ??,
-        "run_essay":       "Humanize Essay ??,
+        "run_cover":       "Humanize Cover Letter →",
+        "run_cv":          "Humanize CV →",
+        "run_essay":       "Humanize Essay →",
         # errors
         "err_no_api":      "API key not configured on this server. Please contact the administrator.",
         "err_no_jd":       "Please add a Job Description in the sidebar.",
@@ -179,7 +179,7 @@ L_ALL = {
         "step4":           "Running fact guardrail",
         "step_ai":         "Measuring AI detection probability",
         "step_ai_pass":    "Passed threshold!",
-        "step_ai_retry":   "Target 30% not met ??refining...",
+        "step_ai_retry":   "Target 30% not met — refining...",
         # result
         "done_ok":         "Humanization Complete",
         "done_max":        "Complete (max retries reached)",
@@ -194,14 +194,14 @@ L_ALL = {
         "after_sub":       "AI detection bypassed",
         "dl_label":        "Download",
         "copy_btn":        "Copy to Clipboard",
-        "copy_done":       "Copied ??,
+        "copy_done":       "Copied ✓",
         "facts_expander":  "View extracted fact data",
         "char_ko":         "Korean",
         "char_unit":       "chars",
         # translation UI
         "trans_dir_title": "Select Translation Direction",
-        "trans_ko_en":     "?눖?눟 Korean  ?? ?눣?눡 English",
-        "trans_en_ko":     "?눣?눡 English  ?? ?눖?눟 Korean",
+        "trans_ko_en":     "🇰🇷 Korean  →  🇺🇸 English",
+        "trans_en_ko":     "🇺🇸 English  →  🇰🇷 Korean",
         "trans_src_label": "Paste source text",
         "trans_btn":       "Translate",
         "trans_style":     "Style",
@@ -217,13 +217,13 @@ L_ALL = {
         "doc_cv":          "Resume/CV",
         "doc_essay":       "Personal Essay",
         "beta_title":      "Beta Notice",
-        "beta_body":       "This tool is currently in beta. Humanization results may not be 100% perfect ??some sentences may still be flagged as AI-written by detection tools. Please review all output carefully before use.",
+        "beta_body":       "This tool is currently in beta. Humanization results may not be 100% perfect — some sentences may still be flagged as AI-written by detection tools. Please review all output carefully before use.",
     },
 }
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # GLOBAL CSS
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap');
@@ -375,9 +375,9 @@ div[data-testid="stAlert"] { border-radius: 12px !important; font-size: 14px !im
 """, unsafe_allow_html=True)
 
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # CONSTANTS
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 ACTION_VERBS = {
     "Strategy / Finance": ["Formulated","Forecasted","Evaluated","Structured","Negotiated","Synthesized","Streamlined"],
     "Marketing":          ["Launched","Optimized","Analyzed","Cultivated","Amplified","Positioned","Executed"],
@@ -394,9 +394,9 @@ TAB_META = {
 }
 
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # UTILS
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 GROQ_BASE_URL = "https://api.groq.com/openai/v1"
 GROQ_MODEL = "llama-3.3-70b-versatile"
 
@@ -412,12 +412,12 @@ def get_client():
     return OpenAI(api_key=key, base_url=GROQ_BASE_URL) if key else None
 
 def is_korean(text: str) -> bool:
-    return sum(1 for c in text if '媛' <= c <= '??) / max(len(text), 1) > 0.1
+    return sum(1 for c in text if '가' <= c <= '힣') / max(len(text), 1) > 0.1
 
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # AI PIPELINE
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 def step1_extract(client, jd, draft, category, mode):
     if mode == "cv":
         body = f"Extract structured data from this CV/Resume.\n\nDRAFT:\n{draft}\n\nOutput:\nEXPERIENCES: [role/company/duration/metrics]\nSKILLS: [tech+soft]\nEDUCATION: [degrees]\nACHIEVEMENTS: [quantified]\nTONE: [Korean/English]"
@@ -436,17 +436,17 @@ def step2_persona(client, facts, draft, category, mode):
     verbs = ", ".join(ACTION_VERBS.get(category, []))
     kor = is_korean(draft)
     if mode == "cv":
-        sys = "?덈뒗 10??寃쎈젰 ?ㅻ뱶?뚰꽣?? AI ?꾩깉 ?섎뒗 ?쒗쁽???꾨? 嫄룹뼱?닿퀬 ?ㅼ젣 ?щ엺????寃껋쿂??諛붽퓭." if kor else "You're a senior headhunter rewriting a resume to sound genuinely human."
-        task = (f"?꾨옒 ?곗씠?곕줈 ?대젰?쒕? ?멸컙?뷀빐. 遺덈┸ ?좎?, ?レ옄 ?좎?, ?섎룞?믩뒫?? 湲몄씠 遺덇퇏?쇳븯寃?\n湲덉??? ?곸떊?곸씤, ?곸썡?? 理쒖꽑, ?댁젙\n\n[?곗씠??\n{facts}\n\n[?먮낯]\n{draft}\n\n蹂몃Ц留?異쒕젰." if kor
+        sys = "너는 10년 경력 헤드헌터야. AI 냄새 나는 표현을 전부 걷어내고 실제 사람이 쓴 것처럼 바꿔." if kor else "You're a senior headhunter rewriting a resume to sound genuinely human."
+        task = (f"아래 데이터로 이력서를 인간화해. 불릿 유지, 숫자 유지, 수동→능동, 길이 불균일하게.\n금지어: 혁신적인, 탁월한, 최선, 열정\n\n[데이터]\n{facts}\n\n[원본]\n{draft}\n\n본문만 출력." if kor
                 else f"Humanize this CV. Keep bullets+numbers. Active verbs. Vary lengths. No: passionate/innovative/leveraged.\n\n[FACTS]\n{facts}\n\n[ORIGINAL]\n{draft}\n\n[VERBS]\n{verbs}\n\nOutput CV text only.")
     elif mode == "essay":
-        sys = "?덈뒗 ??숈썝 ?낇븰?ъ젙愿 異쒖떊 湲?곌린 肄붿튂?? ?쒖궗 ?먮쫫???대━怨?AI ?붿쟻???쒓굅??" if kor else "You're a writing coach who reads college essays. Human > polished."
-        task = (f"?먯꽭???멸컙?? ?쒖궗 ?좎?(?ш굔?믨컧?뺚넂源⑤떖??, 臾몄옣 湲몄씠 遺덇퇋移? 援ъ뼱泥??곌껐???쎌엯, ?대┛ 寃곕쭚 ?덉슜.\n湲덉?: ?곸떊,?댁젙,?꾩쟾,?깆옣\n\n[?곗씠??\n{facts}\n\n[?먮낯]\n{draft}\n\n蹂몃Ц留?異쒕젰." if kor
-                else f"Humanize this essay. Keep arc (event?뭙motion?뭝nsight). Vary length. Use contractions. No: passionate/transformative/journey.\n\n[FACTS]\n{facts}\n\n[ORIGINAL]\n{draft}\n\nOutput only.")
+        sys = "너는 대학원 입학사정관 출신 글쓰기 코치야. 서사 흐름을 살리고 AI 흔적을 제거해." if kor else "You're a writing coach who reads college essays. Human > polished."
+        task = (f"에세이 인간화. 서사 유지(사건→감정→깨달음), 문장 길이 불규칙, 구어체 연결사 삽입, 열린 결말 허용.\n금지: 혁신,열정,도전,성장\n\n[데이터]\n{facts}\n\n[원본]\n{draft}\n\n본문만 출력." if kor
+                else f"Humanize this essay. Keep arc (event→emotion→insight). Vary length. Use contractions. No: passionate/transformative/journey.\n\n[FACTS]\n{facts}\n\n[ORIGINAL]\n{draft}\n\nOutput only.")
     else:
-        sys = ("?덈뒗 ?湲곗뾽 ?몄궗? 異쒖떊 40? 而⑥꽕?댄듃?? 諛?11?? ?쇨낀?섏?留?寃쏀뿕 ?띾?.\n臾몄껜: 吏㏃?臾몄옣+湲대Ц???쇳빀, 援ъ뼱泥??곌껐?? ?⑤씫 湲몄씠 遺덇퇏??\n湲덉??? ?곸떊,?댁젙,?꾩쟾,?쒕꼫吏,湲곗뿬,?꾪븯寃좎뒿?덈떎" if kor
+        sys = ("너는 대기업 인사팀 출신 40대 컨설턴트야. 밤 11시, 피곤하지만 경험 풍부.\n문체: 짧은문장+긴문장 혼합, 구어체 연결사, 단락 길이 불균일.\n금지어: 혁신,열정,도전,시너지,기여,임하겠습니다" if kor
                else "You're a 35-yo ex-recruiter editing at 11 PM. Slightly imperfect. Mix short+long sentences. No: passionate/innovative/leverage/synergy/dynamic")
-        task = (f"?먯냼???ㅼ떆 ?⑥쨾. ?먮낯 ?녿뒗 ?댁슜 異붽? 湲덉?. '??? 3?곗냽 湲덉?. 蹂묐젹援ъ“ 諛섎났 湲덉?. ?レ옄 ?좎?.\n\n[?ъ떎]\n{facts}\n\n[?먮낯]\n{draft}\n\n[?숈궗]\n{verbs}\n\n蹂몃Ц留?異쒕젰." if kor
+        task = (f"자소서 다시 써줘. 원본 없는 내용 추가 금지. '저는' 3연속 금지. 병렬구조 반복 금지. 숫자 유지.\n\n[사실]\n{facts}\n\n[원본]\n{draft}\n\n[동사]\n{verbs}\n\n본문만 출력." if kor
                 else f"Rewrite ONLY using facts below. No 3+ 'I'-starts. Break repeated parallel. Preserve numbers.\n\n[FACTS]\n{facts}\n\n[ORIGINAL]\n{draft}\n\n[VERBS]\n{verbs}\n\nCover letter body only.")
     return client.chat.completions.create(
         model=GROQ_MODEL,
@@ -458,17 +458,17 @@ def step2_persona(client, facts, draft, category, mode):
 def step3_irregularity(client, text, draft, mode):
     kor = is_korean(draft)
     if mode == "cv":
-        p = ("CV?먯꽌 AI ?⑦꽩 ?쒓굅.\n1.媛숈? 援ъ“ 遺덈┸??媛??ㅻⅤ寃?2.?レ옄 ?쒓린 ?ㅼ뼇??3.留덉?留?遺덈┸ 誘몄셿???먮굦\n?⑺듃 蹂寃?湲덉?. ?섏젙蹂몃쭔." if kor
+        p = ("CV에서 AI 패턴 제거.\n1.같은 구조 불릿→2개 다르게 2.숫자 표기 다양화 3.마지막 불릿 미완성 느낌\n팩트 변경 금지. 수정본만." if kor
              else "Remove AI patterns from CV.\n1.Vary 2 bullets if all same structure 2.Mix number formats 3.Last bullet slightly open\nNo fact changes. Output only.")
     elif mode == "essay":
-        p = ("?먯꽭??AI ?⑦꽩 ?쒓굅.\n1.湲?臾몄옣 2媛쒋넂??쒕줈 ?딄린 2.吏㏃? 臾몄옣 2媛??좎? 3.紐⑤뱺 ?⑤씫??寃곕줎?대㈃??媛?吏덈Ц/?ъ슫?쇰줈 4.鍮꾩듂???⑤씫 3媛쒋넁??媛?1臾몄옣?쇰줈\n?⑺듃 蹂寃?湲덉?." if kor
-             else "Remove AI patterns from essay.\n1.Split 2 longest sentences with em-dash 2.Keep 2 shortest verbatim 3.If every para ends with conclusion?? open thought 4.3+ similar-length paras?뭖ollapse 1\nNo changes to facts. Output only.")
+        p = ("에세이 AI 패턴 제거.\n1.긴 문장 2개→대시로 끊기 2.짧은 문장 2개 유지 3.모든 단락이 결론이면→1개 질문/여운으로 4.비슷한 단락 3개↑→1개 1문장으로\n팩트 변경 금지." if kor
+             else "Remove AI patterns from essay.\n1.Split 2 longest sentences with em-dash 2.Keep 2 shortest verbatim 3.If every para ends with conclusion→1 open thought 4.3+ similar-length paras→collapse 1\nNo changes to facts. Output only.")
     else:
-        p = ("?먯냼??AI ?붿쟻 ?쒓굅.\n1.湲?臾몄옣 3媛쒋넂??쒕줈 ?딄린 2.吏㏃? 臾몄옣 2媛??좎? 3.~?덉뒿?덈떎 3?곗냽??媛?紐낆궗??4.3???섏뿴??媛?鍮꾪?湲?5.留덉?留?臾몄옣?믪뿴由?寃곕쭚 6.媛숈? 湲몄씠 ?⑤씫 3媛쒋넁??媛?1臾몄옣\n?⑺듃 蹂寃?湲덉?. ?섏젙蹂몃쭔." if kor
-             else "Remove AI patterns from cover letter.\n1.Split 3 longest w/ em-dash 2.Keep 2 shortest verbatim 3.3+ 'I' starts?뭖hange one 4.Repeated parallel?뭕reak one 5.Final line?뭪railing thought 6.3+ same-length paras?뭖ollapse one\nNo facts changed. Output only.")
+        p = ("자소서 AI 흔적 제거.\n1.긴 문장 3개→대시로 끊기 2.짧은 문장 2개 유지 3.~했습니다 3연속→1개 명사형 4.3항 나열→1개 비틀기 5.마지막 문장→열린 결말 6.같은 길이 단락 3개↑→1개 1문장\n팩트 변경 금지. 수정본만." if kor
+             else "Remove AI patterns from cover letter.\n1.Split 3 longest w/ em-dash 2.Keep 2 shortest verbatim 3.3+ 'I' starts→change one 4.Repeated parallel→break one 5.Final line→trailing thought 6.3+ same-length paras→collapse one\nNo facts changed. Output only.")
     return client.chat.completions.create(
         model=GROQ_MODEL,
-        messages=[{"role":"user","content":f"{p}\n\n[湲]\n{text}"}],
+        messages=[{"role":"user","content":f"{p}\n\n[글]\n{text}"}],
         temperature=0.5,
     ).choices[0].message.content
 
@@ -496,14 +496,15 @@ def step5_ai_score(client, text) -> int:
 Criteria for HIGH AI probability (score closer to 100):
 - Overly uniform sentence lengths
 - Perfect parallel structures repeated multiple times
-- Buzzwords: innovative, passionate, leverage, synergy, ?곸떊, ?댁젙, ?쒕꼫吏
+- Buzzwords: innovative, passionate, leverage, synergy, 혁신, 열정, 시너지
 - Every paragraph ends with a tidy conclusion
 - No hesitation, no imperfection, no personal voice
-- Formulaic transitions: Furthermore, Additionally, In conclusion, ?먰븳, ?곕씪?? 寃곕줎?곸쑝濡?
+- Formulaic transitions: Furthermore, Additionally, In conclusion, 또한, 따라서, 결론적으로
+
 Criteria for LOW AI probability (score closer to 0):
 - Irregular sentence lengths (very short + very long mixed)
 - Natural interruptions (em-dashes, incomplete thoughts)
-- Colloquial connectors: Honestly, Here's the thing, ?붿쭅?? 洹몃븣, ?ъ떎?
+- Colloquial connectors: Honestly, Here's the thing, 솔직히, 그때, 사실은
 - Some paragraphs end without conclusion
 - Feels like a real person wrote it at midnight
 
@@ -525,19 +526,20 @@ Respond with ONLY a single integer (0-100). Nothing else."""
 def step5_refine(client, text, original) -> str:
     kor = is_korean(original)
     if kor:
-        prompt = f"""?꾨옒 湲??AI媛 ??寃?媛숇떎???됯?瑜?諛쏆븯?? ???멸컙?곸쑝濡?諛붽퓭以?
+        prompt = f"""아래 글이 AI가 쓴 것 같다는 평가를 받았어. 더 인간적으로 바꿔줘.
 
-[湲]
+[글]
 {text}
 
-?곸슜???섏젙 (紐⑤몢 ?곸슜):
-1. 媛??AI?ㅻ윭??臾몄옣 3媛????꾩쟾???ㅻⅨ 援ъ“濡??ъ옉??2. ?꾨꼍?섍쾶 留덈Т由щ맂 ?⑤씫 1媛????대┛ 寃곕쭚 ?먮뒗 ?ъ슫?쇰줈
-3. ?덈Т 留ㅻ걚?ъ슫 ?꾪솚???먰븳, ?곕씪?? 寃곕줎?곸쑝濡? ??援ъ뼱泥대줈 援먯껜
-4. 媛??湲?臾몄옣 2媛????????濡?以묎컙???딄린
-5. 臾몄옣 3媛??댁긽 媛숈? 湲몄씠 ?⑦꽩 ???섎룄?곸쑝濡?源④린
-6. ?먯뿰?ㅻ윭??留앹꽕???먮뒗 諛⑺뼢 ?꾪솚 1怨?異붽?
+적용할 수정 (모두 적용):
+1. 가장 AI스러운 문장 3개 → 완전히 다른 구조로 재작성
+2. 완벽하게 마무리된 단락 1개 → 열린 결말 또는 여운으로
+3. 너무 매끄러운 전환어(또한, 따라서, 결론적으로) → 구어체로 교체
+4. 가장 긴 문장 2개 → 대시(—)로 중간에 끊기
+5. 문장 3개 이상 같은 길이 패턴 → 의도적으로 깨기
+6. 자연스러운 망설임 또는 방향 전환 1곳 추가
 
-?⑺듃(?レ옄, ?대쫫, 寃쏀뿕) 蹂寃??덈? 湲덉?. ?섏젙蹂몃쭔 異쒕젰."""
+팩트(숫자, 이름, 경험) 변경 절대 금지. 수정본만 출력."""
     else:
         prompt = f"""The text below was flagged as likely AI-written. Make it sound more human.
 
@@ -546,8 +548,8 @@ def step5_refine(client, text, original) -> str:
 
 Apply ALL of these:
 1. Rewrite the 3 most AI-sounding sentences with completely different structures
-2. Take 1 perfectly-concluded paragraph ??rewrite ending as open thought or question
-3. Replace smooth transitions (Furthermore, Additionally, In conclusion) ??conversational alternatives
+2. Take 1 perfectly-concluded paragraph → rewrite ending as open thought or question
+3. Replace smooth transitions (Furthermore, Additionally, In conclusion) → conversational alternatives
 4. Split the 2 longest sentences with an em-dash at a natural break
 5. Break any 3+ sentence pattern of similar length
 6. Add 1 moment of natural hesitation or shift in direction
@@ -560,13 +562,13 @@ Never change facts (numbers, names, experiences). Output revised text only."""
     ).choices[0].message.content
 
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # FILE GENERATION
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 def make_docx(text):
     doc = Document()
     s = doc.styles['Normal']
-    s.font.name = '留묒? 怨좊뵓' if is_korean(text) else 'Calibri'
+    s.font.name = '맑은 고딕' if is_korean(text) else 'Calibri'
     s.font.size = Pt(11)
     for p in text.split('\n'): doc.add_paragraph(p)
     buf = io.BytesIO(); doc.save(buf); return buf.getvalue()
@@ -591,9 +593,9 @@ def make_pdf(text):
     return bytes(pdf.output())
 
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # COPY BUTTON
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 def copy_button(text, key, L):
     safe = text.replace("\\","\\\\").replace("`","\\`").replace("$","\\$").replace('"','\\"')
     components.html(f"""
@@ -610,9 +612,9 @@ def copy_button(text, key, L):
 ">{L['copy_btn']}</button>""", height=44)
 
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # SIDEBAR
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 with st.sidebar:
     L = L_ALL[st.session_state.lang]
 
@@ -622,7 +624,7 @@ with st.sidebar:
   border-bottom:1px solid #EBEBEA;margin-bottom:16px">
   <div style="width:36px;height:36px;background:#1A1915;border-radius:10px;
     display:flex;align-items:center;justify-content:center;
-    color:#fff;font-size:17px;font-weight:800;flex-shrink:0">??/div>
+    color:#fff;font-size:17px;font-weight:800;flex-shrink:0">✦</div>
   <div>
     <div style="font-size:15px;font-weight:800;color:#1A1915;letter-spacing:-0.3px">Humanize AI</div>
     <div style="font-size:11px;color:#9B9790;margin-top:1px">{L['brand_sub']}</div>
@@ -630,14 +632,14 @@ with st.sidebar:
 </div>
 """, unsafe_allow_html=True)
 
-    # ?? Language toggle ????????????????????????????????????????????????????????
+    # ── Language toggle ────────────────────────────────────────────────────────
     lc1, lc2 = st.columns(2, gap="small")
     with lc1:
-        if st.button("?눖?눟  ?쒓뎅??, key="lang_ko", use_container_width=True,
+        if st.button("🇰🇷  한국어", key="lang_ko", use_container_width=True,
                      type="primary" if st.session_state.lang == "ko" else "secondary"):
             st.session_state.lang = "ko"; st.rerun()
     with lc2:
-        if st.button("?눣?눡  English", key="lang_en", use_container_width=True,
+        if st.button("🇺🇸  English", key="lang_en", use_container_width=True,
                      type="primary" if st.session_state.lang == "en" else "secondary"):
             st.session_state.lang = "en"; st.rerun()
 
@@ -651,14 +653,14 @@ with st.sidebar:
   <div style="display:flex;flex-direction:column;gap:2px">
     <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;
       border-radius:9px;background:#F0EFEC;">
-      <span style="font-size:15px">??/span>
+      <span style="font-size:15px">✦</span>
       <span style="font-size:13px;font-weight:700;color:#1A1915">{L['nav_humanizer']}</span>
       <span style="margin-left:auto;font-size:10px;background:#1A1915;color:#fff;
         padding:2px 6px;border-radius:4px;font-weight:700">{L['nav_active'].upper()}</span>
     </div>
     <a href="/GPA_Calculator" target="_self" style="display:flex;align-items:center;gap:10px;
       padding:9px 12px;border-radius:9px;text-decoration:none;transition:all 0.15s;color:#5C5A55;">
-      <span style="font-size:15px">?럳</span>
+      <span style="font-size:15px">🎓</span>
       <span style="font-size:13px;font-weight:600;color:#5C5A55">{L['nav_gpa']}</span>
     </a>
   </div>
@@ -679,20 +681,20 @@ with st.sidebar:
     st.markdown("<div style='height:24px'></div>", unsafe_allow_html=True)
 
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # REFRESH L after sidebar (sidebar may have changed lang)
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 L = L_ALL[st.session_state.lang]
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # MAIN HEADER + TOOL CARDS
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 st.markdown(f"""
 <div style="background:#FFFBEB;border:1.5px solid #FDE68A;border-radius:14px;
   padding:14px 18px;display:flex;align-items:flex-start;gap:12px;margin-bottom:20px">
   <div style="width:32px;height:32px;background:#F59E0B;border-radius:9px;
     display:flex;align-items:center;justify-content:center;font-size:15px;
-    flex-shrink:0;color:#fff;font-weight:800">棺</div>
+    flex-shrink:0;color:#fff;font-weight:800">β</div>
   <div>
     <div style="font-size:13px;font-weight:800;color:#92400E;margin-bottom:3px">
       {L['beta_title']}
@@ -709,7 +711,7 @@ st.markdown(f"""
   <div style="display:flex;align-items:center;gap:12px">
     <div style="width:40px;height:40px;background:#1A1915;
       border-radius:10px;display:flex;align-items:center;justify-content:center;
-      font-size:18px;flex-shrink:0;color:#fff">??/div>
+      font-size:18px;flex-shrink:0;color:#fff">✦</div>
     <h1 style="font-size:28px;font-weight:800;color:#1A1915;letter-spacing:-0.6px;margin:0">
       {L['page_title']}
     </h1>
@@ -718,41 +720,41 @@ st.markdown(f"""
 
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px">
   <div style="background:#FFFFFF;border:1.5px solid #DDDCDA;border-radius:10px;padding:16px 18px">
-    <div style="font-size:18px;margin-bottom:8px">??/div>
+    <div style="font-size:18px;margin-bottom:8px">✦</div>
     <div style="font-size:13px;font-weight:700;color:#1A1915;margin-bottom:4px">{L['card_humanizer']}</div>
     <div style="font-size:11px;color:#9B9790;line-height:1.5">{L['card_h_desc']}</div>
-    <div style="margin-top:10px;font-size:11px;font-weight:600;color:#5C5A55">{L['card_h_cta']} ??/div>
+    <div style="margin-top:10px;font-size:11px;font-weight:600;color:#5C5A55">{L['card_h_cta']} →</div>
   </div>
   <div style="background:#FFFFFF;border:1.5px solid #DDDCDA;border-radius:10px;padding:16px 18px">
-    <div style="font-size:18px;margin-bottom:8px">?뙋</div>
+    <div style="font-size:18px;margin-bottom:8px">🌐</div>
     <div style="font-size:13px;font-weight:700;color:#1A1915;margin-bottom:4px">{L['card_trans']}</div>
     <div style="font-size:11px;color:#9B9790;line-height:1.5">{L['card_t_desc']}</div>
-    <div style="margin-top:10px;font-size:11px;font-weight:600;color:#5C5A55">{L['card_t_cta']} ??/div>
+    <div style="margin-top:10px;font-size:11px;font-weight:600;color:#5C5A55">{L['card_t_cta']} →</div>
   </div>
   <a href="/GPA_Calculator" target="_self" style="text-decoration:none">
     <div style="background:#FFFFFF;border:1.5px solid #DDDCDA;border-radius:10px;padding:16px 18px;
       cursor:pointer;transition:border-color 0.15s;height:100%;box-sizing:border-box"
       onmouseenter="this.style.borderColor='#1A1915'" onmouseleave="this.style.borderColor='#DDDCDA'">
-      <div style="font-size:18px;margin-bottom:8px">?럳</div>
+      <div style="font-size:18px;margin-bottom:8px">🎓</div>
       <div style="font-size:13px;font-weight:700;color:#1A1915;margin-bottom:4px">{L['card_gpa']}</div>
       <div style="font-size:11px;color:#9B9790;line-height:1.5">{L['card_g_desc']}</div>
-      <div style="margin-top:10px;font-size:11px;font-weight:600;color:#5C5A55">{L['card_g_cta']} ??/div>
+      <div style="margin-top:10px;font-size:11px;font-weight:600;color:#5C5A55">{L['card_g_cta']} →</div>
     </div>
   </a>
 </div>
 """, unsafe_allow_html=True)
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # TABS
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 tab_cover, tab_cv, tab_essay = st.tabs([
     L["tab_cover"], L["tab_cv"], L["tab_essay"],
 ])
 
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # TRANSLATION UI
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 def render_translation(mode, tab_color, L):
     doc_type = L[f"doc_{mode}"]
     dir_key = f"trans_dir_{mode}"
@@ -761,7 +763,7 @@ def render_translation(mode, tab_color, L):
 
     st.markdown(f"""
 <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
-  <span style="font-size:18px">?뙋</span>
+  <span style="font-size:18px">🌐</span>
   <span style="font-size:16px;font-weight:700;color:#1A1915">{L['trans_dir_title']}</span>
 </div>""", unsafe_allow_html=True)
 
@@ -773,10 +775,10 @@ def render_translation(mode, tab_color, L):
     direction = "ko_en" if direction_label == L["trans_ko_en"] else "en_ko"
     st.session_state[dir_key] = direction
 
-    src_lang = ("?쒓뎅?? if direction == "ko_en" else "?곸뼱") if L == L_ALL["ko"] else ("Korean" if direction == "ko_en" else "English")
-    tgt_lang = ("?곸뼱" if direction == "ko_en" else "?쒓뎅??) if L == L_ALL["ko"] else ("English" if direction == "ko_en" else "Korean")
-    src_flag = "?눖?눟" if direction == "ko_en" else "?눣?눡"
-    tgt_flag = "?눣?눡" if direction == "ko_en" else "?눖?눟"
+    src_lang = ("한국어" if direction == "ko_en" else "영어") if L == L_ALL["ko"] else ("Korean" if direction == "ko_en" else "English")
+    tgt_lang = ("영어" if direction == "ko_en" else "한국어") if L == L_ALL["ko"] else ("English" if direction == "ko_en" else "Korean")
+    src_flag = "🇰🇷" if direction == "ko_en" else "🇺🇸"
+    tgt_flag = "🇺🇸" if direction == "ko_en" else "🇰🇷"
 
     st.markdown(f"""
 <div style="display:flex;align-items:center;justify-content:center;gap:16px;
@@ -786,7 +788,7 @@ def render_translation(mode, tab_color, L):
     <div style="font-size:26px">{src_flag}</div>
     <div style="font-size:14px;font-weight:700;color:#1A1915;margin-top:2px">{src_lang}</div>
   </div>
-  <div style="font-size:28px;color:{tab_color};font-weight:300">??/div>
+  <div style="font-size:28px;color:{tab_color};font-weight:300">→</div>
   <div style="text-align:center">
     <div style="font-size:26px">{tgt_flag}</div>
     <div style="font-size:14px;font-weight:700;color:{tab_color};margin-top:2px">{tgt_lang}</div>
@@ -805,13 +807,13 @@ def render_translation(mode, tab_color, L):
         key=f"trans_input_{mode}", label_visibility="collapsed",
     )
     if len(trans_input) > 0:
-        detected = ("?쒓뎅?? if L == L_ALL["ko"] else "Korean") if is_korean(trans_input) else "English"
+        detected = ("한국어" if L == L_ALL["ko"] else "Korean") if is_korean(trans_input) else "English"
         wrong_dir = (direction == "ko_en" and not is_korean(trans_input)) or (direction == "en_ko" and is_korean(trans_input))
-        warn = f" ??{L['trans_warn']}" if wrong_dir else ""
+        warn = f" ⚠ {L['trans_warn']}" if wrong_dir else ""
         unit = L["char_unit"]
-        st.markdown(f'<p style="font-size:12px;color:#B8B6B2;text-align:right;margin-top:4px">{len(trans_input):,}{unit} 쨌 {L["trans_detect"]}: {detected}{warn}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="font-size:12px;color:#B8B6B2;text-align:right;margin-top:4px">{len(trans_input):,}{unit} · {L["trans_detect"]}: {detected}{warn}</p>', unsafe_allow_html=True)
 
-    if not st.button(f"{L['trans_btn']} {src_flag} ??{tgt_flag}", type="primary", use_container_width=True, key=f"run_trans_{mode}"):
+    if not st.button(f"{L['trans_btn']} {src_flag} → {tgt_flag}", type="primary", use_container_width=True, key=f"run_trans_{mode}"):
         return
 
     client = get_client()
@@ -822,20 +824,20 @@ def render_translation(mode, tab_color, L):
 
     style_guide = {
         "cover": {
-            "ko_en": "Korean cover letter ??English. Sound like it was originally written in English. Use strong action verbs. Professional tone for English-speaking job markets.",
-            "en_ko": "?곸뼱 ?먭린?뚭컻?????쒓뎅?? ?쒓뎅 痍⑥뾽 臾명솕??留욌뒗 ?먯뿰?ㅻ윭??寃쎌뼱泥?~?덉뒿?덈떎). 吏곸뿭 湲덉?.",
+            "ko_en": "Korean cover letter → English. Sound like it was originally written in English. Use strong action verbs. Professional tone for English-speaking job markets.",
+            "en_ko": "영어 자기소개서 → 한국어. 한국 취업 문화에 맞는 자연스러운 경어체(~했습니다). 직역 금지.",
         },
         "cv": {
-            "ko_en": "Korean resume/CV ??English. Keep bullet-point format. Use action verbs (Developed, Managed, etc.). Preserve all numbers exactly.",
-            "en_ko": "?곸뼱 ?대젰?????쒓뎅?? 遺덈┸ ?ъ씤???좎?. ?レ옄쨌?섏튂 洹몃?濡? 媛꾧껐???λ룞 ?쒗쁽.",
+            "ko_en": "Korean resume/CV → English. Keep bullet-point format. Use action verbs (Developed, Managed, etc.). Preserve all numbers exactly.",
+            "en_ko": "영어 이력서 → 한국어. 불릿 포인트 유지. 숫자·수치 그대로. 간결한 능동 표현.",
         },
         "essay": {
-            "ko_en": "Korean personal essay ??English. Preserve narrative voice and emotional tone. Feel personal and authentic.",
-            "en_ko": "?곸뼱 ?먯꽭?????쒓뎅?? ?쒖궗 ?먮쫫怨?媛먯젙 ???좎?. ?먯뿰?ㅻ윭???쒓뎅???쒗쁽 ?곗꽑.",
+            "ko_en": "Korean personal essay → English. Preserve narrative voice and emotional tone. Feel personal and authentic.",
+            "en_ko": "영어 에세이 → 한국어. 서사 흐름과 감정 톤 유지. 자연스러운 한국어 표현 우선.",
         },
     }
     system_prompt = f"""Professional translator for job application documents ({doc_type}).
-Direction: {src_lang} ??{tgt_lang}
+Direction: {src_lang} → {tgt_lang}
 Style: {style_guide[mode][direction]}
 Rules: Output ONLY translated text. Preserve formatting, line breaks, bullet points, all numbers."""
 
@@ -845,9 +847,9 @@ Rules: Output ONLY translated text. Preserve formatting, line breaks, bullet poi
 <div style="background:#FFFFFF;border:1.5px solid #EBEBEA;border-radius:10px;
   padding:12px 16px;display:flex;align-items:center;gap:12px;margin-top:8px">
   <div style="width:28px;height:28px;border-radius:8px;background:{tab_color};
-    color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center">?뙋</div>
+    color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center">🌐</div>
   <div>
-    <div style="font-size:13px;font-weight:600;color:#1A1915">{src_lang} ??{tgt_lang} {L['trans_running']}</div>
+    <div style="font-size:13px;font-weight:600;color:#1A1915">{src_lang} → {tgt_lang} {L['trans_running']}</div>
     <div style="font-size:11px;color:#B8B6B2">{L['trans_style_opt']}</div>
   </div>
 </div>""", unsafe_allow_html=True)
@@ -870,10 +872,10 @@ Rules: Output ONLY translated text. Preserve formatting, line breaks, bullet poi
 <div style="background:#F0FDF4;border:1.5px solid #A7F3D0;border-radius:12px;
   padding:12px 16px;display:flex;align-items:center;gap:10px;margin:14px 0">
   <div style="width:28px;height:28px;background:#10B981;border-radius:8px;
-    color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center">??/div>
+    color:#fff;font-size:14px;font-weight:700;display:flex;align-items:center;justify-content:center">✓</div>
   <div>
     <div style="font-size:13px;font-weight:700;color:#065F46">{L['trans_done']}</div>
-    <div style="font-size:11px;color:#6EE7B7">{src_lang} ??{tgt_lang} 쨌 {doc_type}</div>
+    <div style="font-size:11px;color:#6EE7B7">{src_lang} → {tgt_lang} · {doc_type}</div>
   </div>
 </div>
 """, unsafe_allow_html=True)
@@ -897,9 +899,9 @@ Rules: Output ONLY translated text. Preserve formatting, line breaks, bullet poi
             except: pass
 
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # RENDER TAB
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 def render_tab(mode, tab_color, L, job_description, job_category):
     tog_key = f"show_trans_{mode}"
     if tog_key not in st.session_state:
@@ -923,7 +925,7 @@ def render_tab(mode, tab_color, L, job_description, job_category):
         render_translation(mode, tab_color, L)
         return
 
-    # ?? Humanize mode ??????????????????????????????????????????????????????????
+    # ── Humanize mode ──────────────────────────────────────────────────────────
     PLACEHOLDERS = {"cover": L["ph_cover"], "cv": L["ph_cv"], "essay": L["ph_essay"]}
     input_text = st.text_area(
         "input", height=240, placeholder=PLACEHOLDERS[mode],
@@ -933,7 +935,7 @@ def render_tab(mode, tab_color, L, job_description, job_category):
     char_count = len(input_text)
     if char_count > 0:
         lang_detected = L["char_ko"] if is_korean(input_text) else "English"
-        st.markdown(f'<p style="font-size:12px;color:#B8B6B2;text-align:right;margin-top:4px">{char_count:,}{L["char_unit"]} 쨌 {lang_detected}</p>', unsafe_allow_html=True)
+        st.markdown(f'<p style="font-size:12px;color:#B8B6B2;text-align:right;margin-top:4px">{char_count:,}{L["char_unit"]} · {lang_detected}</p>', unsafe_allow_html=True)
 
     run_labels = {"cover": L["run_cover"], "cv": L["run_cv"], "essay": L["run_essay"]}
     clicked = st.button(run_labels[mode], type="primary", use_container_width=True, key=f"run_{mode}")
@@ -976,7 +978,7 @@ def render_tab(mode, tab_color, L, job_description, job_category):
         if score is not None:
             score_col = "#EF4444" if score > 50 else "#F59E0B" if score > 30 else "#10B981"
             score_badge = f'<div style="margin-left:auto;font-size:13px;font-weight:800;color:{score_col}">{score}%</div>'
-            sub_txt = f"AI {score}% ??{L['step_ai_retry'] if score > 30 else L['step_ai_pass']}"
+            sub_txt = f"AI {score}% — {L['step_ai_retry'] if score > 30 else L['step_ai_pass']}"
         else:
             score_badge = f'<div style="margin-left:auto">{SPIN_DIV}</div>'
             sub_txt = f"#{attempt}" if attempt else ""
@@ -1007,8 +1009,8 @@ def render_tab(mode, tab_color, L, job_description, job_category):
             ai_history.append(score)
             bar.progress(min(55 + int((attempt / MAX_TRIES) * 40), 94))
             if score <= 30:
-                show_score_step(f"AI {score}% ??{L['step_ai_pass']}", "AI", score=score); break
-            show_score_step(f"AI {score}% ??{L['step_ai_retry']}", "AI", score=score)
+                show_score_step(f"AI {score}% — {L['step_ai_pass']}", "AI", score=score); break
+            show_score_step(f"AI {score}% — {L['step_ai_retry']}", "AI", score=score)
             final = step5_refine(client, final, input_text)
 
         bar.progress(100)
@@ -1020,7 +1022,7 @@ def render_tab(mode, tab_color, L, job_description, job_category):
 
     bar.empty(); step_ph.empty()
 
-    # ?? Result banner ??
+    # ── Result banner ──
     diff = len(final) - len(input_text)
     sign = "+" if diff >= 0 else ""
     diff_col = "#10B981" if diff >= 0 else "#EF4444"
@@ -1031,12 +1033,12 @@ def render_tab(mode, tab_color, L, job_description, job_category):
     banner_title_col = "#065F46" if passed else "#78350F"
     banner_sub_col   = "#6EE7B7" if passed else "#FCD34D"
     banner_title = L["done_ok"] if passed else L["done_max"]
-    banner_sub = f"AI {final_ai_score}% 쨌 {lang} 쨌 횞{len(ai_history)}"
+    banner_sub = f"AI {final_ai_score}% · {lang} · ×{len(ai_history)}"
 
     history_dots = ""
     for i, s in enumerate(ai_history):
         dot_col = "#10B981" if s <= 30 else "#F59E0B" if s <= 60 else "#EF4444"
-        arrow = " ??" if i < len(ai_history) - 1 else ""
+        arrow = " → " if i < len(ai_history) - 1 else ""
         history_dots += f'<span style="font-weight:700;color:{dot_col}">{s}%</span><span style="color:#B8B6B2;font-size:11px">{arrow}</span>'
 
     st.markdown(f"""
@@ -1044,7 +1046,7 @@ def render_tab(mode, tab_color, L, job_description, job_category):
   padding:14px 18px;display:flex;align-items:center;gap:12px;margin:16px 0">
   <div style="width:32px;height:32px;background:{banner_icon_bg};border-radius:8px;
     display:flex;align-items:center;justify-content:center;font-size:16px;
-    color:#fff;font-weight:700;flex-shrink:0">{'?? if passed else '!'}</div>
+    color:#fff;font-weight:700;flex-shrink:0">{'✓' if passed else '!'}</div>
   <div style="flex:1">
     <div style="font-size:14px;font-weight:700;color:{banner_title_col}">{banner_title}</div>
     <div style="font-size:12px;color:{banner_sub_col};margin-top:2px">{banner_sub}</div>
@@ -1056,7 +1058,7 @@ def render_tab(mode, tab_color, L, job_description, job_category):
 </div>
 """, unsafe_allow_html=True)
 
-    # ?? Metric cards ??
+    # ── Metric cards ──
     ai_score_col = "#10B981" if final_ai_score <= 30 else "#F59E0B" if final_ai_score <= 60 else "#EF4444"
     if mode == "cover" and job_description.strip():
         ats = ats_score(final, job_description)
@@ -1093,7 +1095,7 @@ def render_tab(mode, tab_color, L, job_description, job_category):
 
     st.markdown("<div style='height:20px'></div>", unsafe_allow_html=True)
 
-    # ?? Before / After ??
+    # ── Before / After ──
     col_l, col_r = st.columns(2, gap="medium")
     with col_l:
         st.markdown(f"""
@@ -1133,9 +1135,9 @@ def render_tab(mode, tab_color, L, job_description, job_category):
         st.code(facts, language="yaml")
 
 
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 # TAB RENDER
-# ?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧?먥븧
+# ══════════════════════════════════════════════════════════════════════════════
 def tab_info_banner(icon, title, desc, bg, text_col, sub_col):
     st.markdown(f"""
 <div style="background:{bg};border-radius:12px;padding:14px 18px;margin-bottom:20px;
@@ -1149,15 +1151,15 @@ def tab_info_banner(icon, title, desc, bg, text_col, sub_col):
 
 with tab_cover:
     m = TAB_META["cover"]
-    tab_info_banner("?뱷", L["banner_cover"], L["banner_cover_d"], m["info_bg"], m["info_text"], m["info_sub"])
+    tab_info_banner("📝", L["banner_cover"], L["banner_cover_d"], m["info_bg"], m["info_text"], m["info_sub"])
     render_tab("cover", m["color"], L, job_description, job_category)
 
 with tab_cv:
     m = TAB_META["cv"]
-    tab_info_banner("?뱞", L["banner_cv"], L["banner_cv_d"], m["info_bg"], m["info_text"], m["info_sub"])
+    tab_info_banner("📄", L["banner_cv"], L["banner_cv_d"], m["info_bg"], m["info_text"], m["info_sub"])
     render_tab("cv", m["color"], L, job_description, job_category)
 
 with tab_essay:
     m = TAB_META["essay"]
-    tab_info_banner("?랃툘", L["banner_essay"], L["banner_essay_d"], m["info_bg"], m["info_text"], m["info_sub"])
+    tab_info_banner("✍️", L["banner_essay"], L["banner_essay_d"], m["info_bg"], m["info_text"], m["info_sub"])
     render_tab("essay", m["color"], L, job_description, job_category)
