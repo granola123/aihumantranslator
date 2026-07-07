@@ -920,14 +920,14 @@ def render_tab(mode, tab_color, L, job_description, job_category):
   </div>
   <p style="font-size:12px;color:#4A6FA5;margin:0 0 14px;line-height:1.6">{L['jd_prompt']}</p>
 </div>""", unsafe_allow_html=True)
-        _jc1, _jc2 = st.columns([1, 2], gap="medium")
+        _jc1, _jc2 = st.columns([1, 3], gap="medium")
         with _jc1:
             _sel = st.selectbox(L["cat_label"], _cat_labels, key="cat_sel")
             job_category = CATEGORY_KEYS[_cat_labels.index(_sel)]
             st.session_state["_jcat"] = job_category
         with _jc2:
             job_description = st.text_area(
-                L["jd_label"], height=120,
+                L["jd_label"], height=280,
                 placeholder=L["jd_placeholder"], key="jd_text",
                 label_visibility="visible",
             )
