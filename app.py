@@ -662,13 +662,14 @@ with st.sidebar:
   <div style="display:flex;flex-direction:column;gap:10px">
     <div style="padding:10px 12px;border-radius:9px;background:#EEF2FA;
       border-left:3px solid #1B3A6B">
-      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-        <span style="font-size:14px">✦</span>
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">
+        <span style="font-size:13px">✦</span>
         <span style="font-size:13px;font-weight:700;color:#1B3A6B">{L['nav_humanizer']}</span>
         <span style="margin-left:auto;font-size:10px;background:#1B3A6B;color:#fff;
           padding:2px 6px;border-radius:4px;font-weight:700">{L['nav_active'].upper()}</span>
       </div>
-      <div style="font-size:11px;color:#6B7A99;line-height:1.5;padding-left:22px">
+      <div style="font-size:11px;color:#6B7A99;line-height:1.4;white-space:nowrap;
+        overflow:hidden;text-overflow:ellipsis">
         {L['card_h_desc']}
       </div>
     </div>
@@ -677,12 +678,13 @@ with st.sidebar:
         background:#FFFFFF;transition:all 0.15s;border-left:3px solid #047857"
         onmouseenter="this.style.background='#F0FDF4'"
         onmouseleave="this.style.background='#FFFFFF'">
-        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
-          <span style="font-size:14px">🎓</span>
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:3px">
+          <span style="font-size:13px">🎓</span>
           <span style="font-size:13px;font-weight:600;color:#1E293B">{L['nav_gpa']}</span>
           <span style="margin-left:auto;font-size:12px;color:#94A3B8">→</span>
         </div>
-        <div style="font-size:11px;color:#6B7A99;line-height:1.5;padding-left:22px">
+        <div style="font-size:11px;color:#6B7A99;line-height:1.4;white-space:nowrap;
+          overflow:hidden;text-overflow:ellipsis">
           {L['card_g_desc']}
         </div>
       </div>
@@ -920,18 +922,15 @@ def render_tab(mode, tab_color, L, job_description, job_category):
   </div>
   <p style="font-size:12px;color:#4A6FA5;margin:0 0 14px;line-height:1.6">{L['jd_prompt']}</p>
 </div>""", unsafe_allow_html=True)
-        _jc1, _jc2 = st.columns([1, 3], gap="medium")
-        with _jc1:
-            _sel = st.selectbox(L["cat_label"], _cat_labels, key="cat_sel")
-            job_category = CATEGORY_KEYS[_cat_labels.index(_sel)]
-            st.session_state["_jcat"] = job_category
-        with _jc2:
-            job_description = st.text_area(
-                L["jd_label"], height=280,
-                placeholder=L["jd_placeholder"], key="jd_text",
-                label_visibility="visible",
-            )
-            st.session_state["_jdesc"] = job_description
+        _sel = st.selectbox(L["cat_label"], _cat_labels, key="cat_sel")
+        job_category = CATEGORY_KEYS[_cat_labels.index(_sel)]
+        st.session_state["_jcat"] = job_category
+        job_description = st.text_area(
+            L["jd_label"], height=380,
+            placeholder=L["jd_placeholder"], key="jd_text",
+            label_visibility="visible",
+        )
+        st.session_state["_jdesc"] = job_description
         st.markdown("<div style='height:4px'></div>", unsafe_allow_html=True)
 
     run_labels = {"cover": L["run_cover"], "cv": L["run_cv"], "essay": L["run_essay"]}

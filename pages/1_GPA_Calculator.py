@@ -297,7 +297,7 @@ with st.sidebar:
           <span style="font-size:13px;font-weight:600;color:#1E293B">{G['nav_humanizer']}</span>
           <span style="margin-left:auto;font-size:12px;color:#94A3B8">→</span>
         </div>
-        <div style="font-size:11px;color:#6B7A99;line-height:1.5;padding-left:22px">
+        <div style="font-size:11px;color:#6B7A99;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
           {G['card_h_desc']}
         </div>
       </div>
@@ -310,7 +310,7 @@ with st.sidebar:
         <span style="margin-left:auto;font-size:10px;background:#047857;color:#fff;
           padding:2px 6px;border-radius:4px;font-weight:700">{G['nav_active'].upper()}</span>
       </div>
-      <div style="font-size:11px;color:#6B7A99;line-height:1.5;padding-left:22px">
+      <div style="font-size:11px;color:#6B7A99;line-height:1.4;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">
         {G['card_g_desc']}
       </div>
     </div>
@@ -343,15 +343,7 @@ with st.sidebar:
 </div>
 """, unsafe_allow_html=True)
 
-    st.markdown("<div style='height:16px'></div>", unsafe_allow_html=True)
-    st.markdown(f"""
-<div style="background:#EEF2FF;border-radius:12px;padding:14px 16px">
-  <p style="font-size:11px;font-weight:700;color:#4F46E5;text-transform:uppercase;letter-spacing:0.5px;margin:0 0 8px">{G['formula_title']}</p>
-  <p style="font-size:12px;color:#5C5A55;margin:0;line-height:1.6">
-    GPA = Σ(Grade Points × Credits) ÷ Σ(Credits)
-  </p>
-</div>
-""", unsafe_allow_html=True)
+
 
 
 # ══════════════════════════════════════════════════════════════════════════════
