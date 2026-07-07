@@ -655,18 +655,33 @@ with st.sidebar:
 <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #EBEBEA">
   <p style="font-size:11px;font-weight:700;color:#9B9790;text-transform:uppercase;
     letter-spacing:0.6px;margin-bottom:10px">{L['nav_tools']}</p>
-  <div style="display:flex;flex-direction:column;gap:2px">
-    <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;
-      border-radius:9px;background:#F0EFEC;">
-      <span style="font-size:15px">✦</span>
-      <span style="font-size:13px;font-weight:700;color:#1A1915">{L['nav_humanizer']}</span>
-      <span style="margin-left:auto;font-size:10px;background:#1A1915;color:#fff;
-        padding:2px 6px;border-radius:4px;font-weight:700">{L['nav_active'].upper()}</span>
+  <div style="display:flex;flex-direction:column;gap:4px">
+    <div style="padding:10px 12px;border-radius:9px;background:#EEF2FA;
+      border-left:3px solid #1B3A6B">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+        <span style="font-size:14px">✦</span>
+        <span style="font-size:13px;font-weight:700;color:#1B3A6B">{L['nav_humanizer']}</span>
+        <span style="margin-left:auto;font-size:10px;background:#1B3A6B;color:#fff;
+          padding:2px 6px;border-radius:4px;font-weight:700">{L['nav_active'].upper()}</span>
+      </div>
+      <div style="font-size:11px;color:#6B7A99;line-height:1.5;padding-left:22px">
+        {L['card_h_desc']}
+      </div>
     </div>
-    <a href="/GPA_Calculator" target="_self" style="display:flex;align-items:center;gap:10px;
-      padding:9px 12px;border-radius:9px;text-decoration:none;transition:all 0.15s;color:#5C5A55;">
-      <span style="font-size:15px">🎓</span>
-      <span style="font-size:13px;font-weight:600;color:#5C5A55">{L['nav_gpa']}</span>
+    <a href="/GPA_Calculator" target="_self" style="text-decoration:none">
+      <div style="padding:10px 12px;border-radius:9px;border:1px solid #E2E8F0;
+        background:#FFFFFF;transition:all 0.15s;border-left:3px solid #047857"
+        onmouseenter="this.style.background='#F0FDF4'"
+        onmouseleave="this.style.background='#FFFFFF'">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <span style="font-size:14px">🎓</span>
+          <span style="font-size:13px;font-weight:600;color:#1E293B">{L['nav_gpa']}</span>
+          <span style="margin-left:auto;font-size:12px;color:#94A3B8">→</span>
+        </div>
+        <div style="font-size:11px;color:#6B7A99;line-height:1.5;padding-left:22px">
+          {L['card_g_desc']}
+        </div>
+      </div>
     </a>
   </div>
 </div>
@@ -702,33 +717,13 @@ st.markdown(f"""
 
 st.markdown(f"""
 <div style="margin-bottom:24px;padding-bottom:20px;border-bottom:1.5px solid #E2E8F0">
-  <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+  <div style="display:flex;align-items:center;gap:14px">
     <div style="width:42px;height:42px;background:#1B3A6B;
       border-radius:10px;display:flex;align-items:center;justify-content:center;
-      font-size:18px;flex-shrink:0;color:#fff;letter-spacing:0">✦</div>
+      font-size:18px;flex-shrink:0;color:#fff">✦</div>
     <h1 style="font-size:26px;font-weight:800;color:#1E293B;letter-spacing:-0.5px;margin:0;line-height:1.2">
       {L['page_title']}
     </h1>
-  </div>
-  <div style="display:flex;gap:10px;flex-wrap:wrap">
-    <div style="display:flex;align-items:center;gap:8px;padding:10px 18px;
-      background:#1B3A6B;border-radius:8px;cursor:default">
-      <span style="color:#fff;font-size:13px">✦</span>
-      <span style="font-size:13px;font-weight:700;color:#fff">{L['card_humanizer']}</span>
-      <span style="font-size:10px;background:rgba(255,255,255,0.25);color:#fff;
-        padding:2px 7px;border-radius:4px;font-weight:700;margin-left:4px">{L['nav_active'].upper()}</span>
-    </div>
-    <a href="/GPA_Calculator" target="_self" style="text-decoration:none">
-      <div style="display:flex;align-items:center;gap:8px;padding:10px 18px;
-        background:#FFFFFF;border:1.5px solid #E2E8F0;border-radius:8px;cursor:pointer;
-        transition:all 0.15s"
-        onmouseenter="this.style.borderColor='#1B3A6B';this.style.background='#EEF2FA'"
-        onmouseleave="this.style.borderColor='#E2E8F0';this.style.background='#FFFFFF'">
-        <span style="font-size:14px">🎓</span>
-        <span style="font-size:13px;font-weight:700;color:#374151">{L['card_gpa']}</span>
-        <span style="font-size:12px;color:#94A3B8;margin-left:2px">→</span>
-      </div>
-    </a>
   </div>
 </div>
 """, unsafe_allow_html=True)
