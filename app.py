@@ -710,26 +710,23 @@ st.markdown(f"""
       {L['page_title']}
     </h1>
   </div>
-  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
-    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;
-      border-left:3px solid #1B3A6B">
-      <div style="font-size:12px;font-weight:700;color:#1B3A6B;text-transform:uppercase;
-        letter-spacing:0.5px;margin-bottom:4px">{L['card_humanizer']}</div>
-      <div style="font-size:12px;color:#64748B;line-height:1.5">{L['card_h_desc']}</div>
-    </div>
-    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;
-      border-left:3px solid #0E7490">
-      <div style="font-size:12px;font-weight:700;color:#0E7490;text-transform:uppercase;
-        letter-spacing:0.5px;margin-bottom:4px">🌐 {L['card_trans']}</div>
-      <div style="font-size:12px;color:#64748B;line-height:1.5">{L['card_t_desc']}</div>
+  <div style="display:flex;gap:10px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:8px;padding:10px 18px;
+      background:#1B3A6B;border-radius:8px;cursor:default">
+      <span style="color:#fff;font-size:13px">✦</span>
+      <span style="font-size:13px;font-weight:700;color:#fff">{L['card_humanizer']}</span>
+      <span style="font-size:10px;background:rgba(255,255,255,0.25);color:#fff;
+        padding:2px 7px;border-radius:4px;font-weight:700;margin-left:4px">{L['nav_active'].upper()}</span>
     </div>
     <a href="/GPA_Calculator" target="_self" style="text-decoration:none">
-      <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;
-        border-left:3px solid #047857;cursor:pointer;transition:background 0.15s;height:100%"
-        onmouseenter="this.style.background='#F0FDF4'" onmouseleave="this.style.background='#FFFFFF'">
-        <div style="font-size:12px;font-weight:700;color:#047857;text-transform:uppercase;
-          letter-spacing:0.5px;margin-bottom:4px">🎓 {L['card_gpa']}</div>
-        <div style="font-size:12px;color:#64748B;line-height:1.5">{L['card_g_desc']}</div>
+      <div style="display:flex;align-items:center;gap:8px;padding:10px 18px;
+        background:#FFFFFF;border:1.5px solid #E2E8F0;border-radius:8px;cursor:pointer;
+        transition:all 0.15s"
+        onmouseenter="this.style.borderColor='#1B3A6B';this.style.background='#EEF2FA'"
+        onmouseleave="this.style.borderColor='#E2E8F0';this.style.background='#FFFFFF'">
+        <span style="font-size:14px">🎓</span>
+        <span style="font-size:13px;font-weight:700;color:#374151">{L['card_gpa']}</span>
+        <span style="font-size:12px;color:#94A3B8;margin-left:2px">→</span>
       </div>
     </a>
   </div>
@@ -921,28 +918,6 @@ Rules: Output ONLY translated text. Preserve formatting, line breaks, bullet poi
 # RENDER TAB
 # ══════════════════════════════════════════════════════════════════════════════
 def render_tab(mode, tab_color, L, job_description, job_category):
-    tog_key = f"show_trans_{mode}"
-    if tog_key not in st.session_state:
-        st.session_state[tog_key] = False
-
-    is_trans = st.session_state[tog_key]
-
-    sw1, sw2 = st.columns(2, gap="small")
-    with sw1:
-        if st.button(L["sw_human"], key=f"sw_human_{mode}", use_container_width=True,
-                     type="primary" if not is_trans else "secondary"):
-            st.session_state[tog_key] = False; st.rerun()
-    with sw2:
-        if st.button(L["sw_trans"], key=f"sw_trans_{mode}", use_container_width=True,
-                     type="primary" if is_trans else "secondary"):
-            st.session_state[tog_key] = True; st.rerun()
-
-    st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
-
-    if st.session_state[tog_key]:
-        render_translation(mode, tab_color, L)
-        return
-
     # ── Humanize mode ──────────────────────────────────────────────────────────
     PLACEHOLDERS = {"cover": L["ph_cover"], "cv": L["ph_cv"], "essay": L["ph_essay"]}
     input_text = st.text_area(
@@ -1167,17 +1142,18 @@ def tab_info_banner(icon, title, desc, bg, text_col, sub_col):
   </div>
 </div>""", unsafe_allow_html=True)
 
-    with tab_cover:
-        m = TAB_META["cover"]
-        tab_info_banner("📝", L["banner_cover"], L["banner_cover_d"], m["info_bg"], m["info_text"], m["info_sub"])
-        render_tab("cover", m["color"], L, job_description, job_category)
 
-    with tab_cv:
-        m = TAB_META["cv"]
-        tab_info_banner("📄", L["banner_cv"], L["banner_cv_d"], m["info_bg"], m["info_text"], m["info_sub"])
-        render_tab("cv", m["color"], L, job_description, job_category)
+with tab_cover:
+    m = TAB_META["cover"]
+    tab_info_banner("📝", L["banner_cover"], L["banner_cover_d"], m["info_bg"], m["info_text"], m["info_sub"])
+    render_tab("cover", m["color"], L, job_description, job_category)
 
-    with tab_essay:
-        m = TAB_META["essay"]
-        tab_info_banner("✍️", L["banner_essay"], L["banner_essay_d"], m["info_bg"], m["info_text"], m["info_sub"])
-        render_tab("essay", m["color"], L, job_description, job_category)
+with tab_cv:
+    m = TAB_META["cv"]
+    tab_info_banner("📄", L["banner_cv"], L["banner_cv_d"], m["info_bg"], m["info_text"], m["info_sub"])
+    render_tab("cv", m["color"], L, job_description, job_category)
+
+with tab_essay:
+    m = TAB_META["essay"]
+    tab_info_banner("✍️", L["banner_essay"], L["banner_essay_d"], m["info_bg"], m["info_text"], m["info_sub"])
+    render_tab("essay", m["color"], L, job_description, job_category)
