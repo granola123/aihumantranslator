@@ -120,7 +120,7 @@ if "lang" not in st.session_state:
 GL = {
     "ko": {
         "brand_sub": "Student Tools Suite", "nav_tools": "도구",
-        "nav_humanizer": "AI 인간화", "nav_gpa": "GPA 계산기", "nav_active": "현재",
+        "nav_humanizer": "AI 인간화", "nav_gpa": "GPA 계산기", "nav_active": "현재", "card_h_desc": "자소서·CV·에세이를 AI 흔적 없이 자연스럽게 재작성", "card_g_desc": "4.0 / 4.3 스케일 · 무제한 과목 · 목표 GPA 계산기",
         "page_title": "GPA 계산기", "page_sub": "4.0 & 4.3 스케일 · 무제한 과목 · 실시간 계산",
         "scale_label": "GPA 스케일", "scale_40": "4.0 스케일", "scale_43": "4.3 스케일",
         "guide_title": "등급 가이드", "formula_title": "계산식",
@@ -147,7 +147,7 @@ GL = {
     },
     "en": {
         "brand_sub": "Student Tools Suite", "nav_tools": "Tools",
-        "nav_humanizer": "AI Humanizer", "nav_gpa": "GPA Calculator", "nav_active": "Active",
+        "nav_humanizer": "AI Humanizer", "nav_gpa": "GPA Calculator", "nav_active": "Active", "card_h_desc": "Rewrite cover letters, CVs & essays to bypass AI detection", "card_g_desc": "4.0 / 4.3 Scale · Unlimited Courses · Goal GPA Estimator",
         "page_title": "GPA Calculator", "page_sub": "4.0 & 4.3 Scale · Unlimited Courses · Live Calculation",
         "scale_label": "GPA Scale", "scale_40": "4.0 Scale", "scale_43": "4.3 Scale",
         "guide_title": "Scale Guide", "formula_title": "Formula",
@@ -284,18 +284,33 @@ with st.sidebar:
 <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #EBEBEA">
   <p style="font-size:11px;font-weight:700;color:#9B9790;text-transform:uppercase;
     letter-spacing:0.6px;margin-bottom:10px">{G['nav_tools']}</p>
-  <div style="display:flex;flex-direction:column;gap:2px">
-    <a href="/" target="_self" style="display:flex;align-items:center;gap:10px;
-      padding:9px 12px;border-radius:9px;text-decoration:none;color:#5C5A55;">
-      <span style="font-size:15px">✦</span>
-      <span style="font-size:13px;font-weight:600;color:#5C5A55">{G['nav_humanizer']}</span>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <a href="/" target="_self" style="text-decoration:none">
+      <div style="padding:10px 12px;border-radius:9px;border:1px solid #E2E8F0;
+        background:#FFFFFF;transition:all 0.15s;border-left:3px solid #1B3A6B"
+        onmouseenter="this.style.background='#EEF2FA'"
+        onmouseleave="this.style.background='#FFFFFF'">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+          <span style="font-size:14px">✦</span>
+          <span style="font-size:13px;font-weight:600;color:#1E293B">{G['nav_humanizer']}</span>
+          <span style="margin-left:auto;font-size:12px;color:#94A3B8">→</span>
+        </div>
+        <div style="font-size:11px;color:#6B7A99;line-height:1.5;padding-left:22px">
+          {G['card_h_desc']}
+        </div>
+      </div>
     </a>
-    <div style="display:flex;align-items:center;gap:10px;padding:9px 12px;
-      border-radius:9px;background:#F0EFEC;">
-      <span style="font-size:15px">🎓</span>
-      <span style="font-size:13px;font-weight:700;color:#1A1915">{G['nav_gpa']}</span>
-      <span style="margin-left:auto;font-size:10px;background:#1A1915;color:#fff;
-        padding:2px 6px;border-radius:4px;font-weight:700">{G['nav_active'].upper()}</span>
+    <div style="padding:10px 12px;border-radius:9px;background:#EEF2FA;
+      border-left:3px solid #047857">
+      <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
+        <span style="font-size:14px">🎓</span>
+        <span style="font-size:13px;font-weight:700;color:#047857">{G['nav_gpa']}</span>
+        <span style="margin-left:auto;font-size:10px;background:#047857;color:#fff;
+          padding:2px 6px;border-radius:4px;font-weight:700">{G['nav_active'].upper()}</span>
+      </div>
+      <div style="font-size:11px;color:#6B7A99;line-height:1.5;padding-left:22px">
+        {G['card_g_desc']}
+      </div>
     </div>
   </div>
 </div>

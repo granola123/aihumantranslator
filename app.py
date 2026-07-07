@@ -257,6 +257,7 @@ div[data-testid="stTabs"] button[data-baseweb="tab"] {
     padding: 11px 20px !important; border-radius: 0 !important; background: transparent !important;
     border: none !important; border-bottom: 3px solid transparent !important;
     margin-bottom: -2px !important; transition: all 0.18s !important;
+    white-space: nowrap !important;
 }
 div[data-testid="stTabs"] button[data-baseweb="tab"]:hover {
     color: #1B3A6B !important; background: #EEF2FA !important;
@@ -655,7 +656,7 @@ with st.sidebar:
 <div style="margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid #EBEBEA">
   <p style="font-size:11px;font-weight:700;color:#9B9790;text-transform:uppercase;
     letter-spacing:0.6px;margin-bottom:10px">{L['nav_tools']}</p>
-  <div style="display:flex;flex-direction:column;gap:4px">
+  <div style="display:flex;flex-direction:column;gap:10px">
     <div style="padding:10px 12px;border-radius:9px;background:#EEF2FA;
       border-left:3px solid #1B3A6B">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:4px">
