@@ -149,7 +149,7 @@ GL = {
     },
     "en": {
         "brand_sub": "Student Tools Suite", "nav_tools": "Tools",
-        "nav_humanizer": "AI Humanizer", "nav_gpa": "GPA Calculator", "nav_active": "Active", "card_h_desc": "Rewrite cover letters, CVs & essays to bypass AI detection", "card_g_desc": "4.0 / 4.3 Scale · Unlimited Courses · Goal GPA Estimator",
+        "nav_humanizer": "AI Humanizer", "nav_gpa": "GPA Calculator", "nav_active": "Active", "card_h_desc": "Rewrite docs to bypass AI detection", "card_g_desc": "4.0 / 4.3 Scale · Unlimited Courses · Goal GPA Estimator",
         "page_title": "GPA Calculator", "page_sub": "4.0 & 4.3 Scale · Unlimited Courses · Live Calculation",
         "scale_label": "GPA Scale", "scale_40": "4.0 Scale", "scale_43": "4.3 Scale",
         "guide_title": "Scale Guide", "formula_title": "Formula",

@@ -40,7 +40,7 @@ L_ALL = {
         # header
         "page_title":      "AI 문서 인간화",
         "card_humanizer":  "AI 인간화",
-        "card_h_desc":     "자소서·CV·에세이를 AI 흔적 없이 자연스럽게 재작성",
+        "card_h_desc":     "자소서·CV·에세이 AI 흔적 없이 재작성",
         "card_h_cta":      "현재 페이지 ↑",
         "card_trans":      "번역",
         "card_t_desc":     "한국어 ↔ 영어 직무 문서 번역 (각 탭 내 토글)",
@@ -142,7 +142,7 @@ L_ALL = {
         # header
         "page_title":      "AI Document Humanizer",
         "card_humanizer":  "AI Humanizer",
-        "card_h_desc":     "Rewrite cover letters, CVs & essays to bypass AI detection",
+        "card_h_desc":     "Rewrite docs to bypass AI detection",
         "card_h_cta":      "Current page ↑",
         "card_trans":      "Translate",
         "card_t_desc":     "Korean ↔ English translation for job documents (toggle in each tab)",
