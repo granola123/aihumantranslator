@@ -14,6 +14,8 @@ st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap');
 
+[data-testid="stSidebarNav"] { display: none !important; }
+
 *, *::before, *::after { box-sizing: border-box; }
 html, body, [class*="css"] { font-family: 'Inter', 'Noto Sans KR', sans-serif !important; }
 

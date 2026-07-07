@@ -117,7 +117,7 @@ L_ALL = {
         "doc_cover":       "자기소개서",
         "doc_cv":          "이력서/CV",
         "doc_essay":       "개인 에세이",
-        "jd_section_title": "채용 공고 입력 (JD)",
+        "jd_section_title": "채용 공고 입력 (JD)", "jd_prompt": "채용 공고를 입력하면 공고에 맞게 자소서를 최적화해드려요!",
         "jd_optional":     "자소서 모드에서 ATS 키워드 최적화에 사용됩니다 (선택)",
         "cat_label":       "직무 분야",
         "beta_title":      "베타 서비스 안내",
@@ -219,7 +219,7 @@ L_ALL = {
         "doc_cover":       "Cover Letter",
         "doc_cv":          "Resume/CV",
         "doc_essay":       "Personal Essay",
-        "jd_section_title": "Job Description (JD)",
+        "jd_section_title": "Job Description (JD)", "jd_prompt": "Paste a job description and we'll tailor your cover letter to the role!",
         "jd_optional":     "Used for ATS keyword optimization in Cover Letter mode (optional)",
         "cat_label":       "Job Field",
         "beta_title":      "Beta Notice",
@@ -233,6 +233,9 @@ L_ALL = {
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* Hide Streamlit built-in page nav */
+[data-testid="stSidebarNav"] { display: none !important; }
 
 *, *::before, *::after { box-sizing: border-box; }
 html, body, [class*="css"] { font-family: 'Inter', 'Noto Sans KR', sans-serif !important; }
@@ -730,37 +733,16 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# MAIN LAYOUT: tabs (left) + JD panel (right)
+# MAIN LAYOUT: full-width tabs, JD inside cover tab
 # ══════════════════════════════════════════════════════════════════════════════
-_lang = st.session_state.lang
-_cat_labels = CATEGORY_LABELS[_lang]
+# job_category / job_description are now defined inside render_tab (cover mode)
+# provide defaults for cv / essay modes
+job_category = st.session_state.get("_jcat", "Strategy / Finance")
+job_description = st.session_state.get("_jdesc", "")
 
-# JD panel widgets rendered first so variables are ready before tabs
-_main_col, _jd_col = st.columns([3, 2], gap="large")
-
-with _jd_col:
-    st.markdown(f"""
-<div style="background:#F4F6FB;border:1.5px solid #D1D9E8;border-radius:14px;padding:22px 20px">
-  <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
-    <span style="font-size:20px">📋</span>
-    <span style="font-size:15px;font-weight:800;color:#1B3A6B;letter-spacing:-0.3px">{L['jd_section_title']}</span>
-  </div>
-  <p style="font-size:12px;color:#6B7A99;margin:0 0 18px">{L['jd_optional']}</p>
-</div>""", unsafe_allow_html=True)
-    st.markdown("<div style='height:-14px'></div>", unsafe_allow_html=True)
-    _sel_label = st.selectbox(
-        L["cat_label"], _cat_labels, key="cat_sel",
-    )
-    job_category = CATEGORY_KEYS[_cat_labels.index(_sel_label)]
-    job_description = st.text_area(
-        L["jd_label"], height=340,
-        placeholder=L["jd_placeholder"], key="jd_text",
-    )
-
-with _main_col:
-    tab_cover, tab_cv, tab_essay = st.tabs([
-        L["tab_cover"], L["tab_cv"], L["tab_essay"],
-    ])
+tab_cover, tab_cv, tab_essay = st.tabs([
+    L["tab_cover"], L["tab_cv"], L["tab_essay"],
+])
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -925,6 +907,32 @@ def render_tab(mode, tab_color, L, job_description, job_category):
     if char_count > 0:
         lang_detected = L["char_ko"] if is_korean(input_text) else "English"
         st.markdown(f'<p style="font-size:12px;color:#B8B6B2;text-align:right;margin-top:4px">{char_count:,}{L["char_unit"]} · {lang_detected}</p>', unsafe_allow_html=True)
+
+    # JD section: only for cover letter mode
+    if mode == "cover":
+        _cat_labels = CATEGORY_LABELS[st.session_state.lang]
+        st.markdown(f"""
+<div style="background:#F0F4FF;border:1.5px solid #C7D4F0;border-radius:12px;
+  padding:16px 18px;margin:16px 0 8px">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
+    <span style="font-size:16px">📋</span>
+    <span style="font-size:14px;font-weight:800;color:#1B3A6B">{L['jd_section_title']}</span>
+  </div>
+  <p style="font-size:12px;color:#4A6FA5;margin:0 0 14px;line-height:1.6">{L['jd_prompt']}</p>
+</div>""", unsafe_allow_html=True)
+        _jc1, _jc2 = st.columns([1, 2], gap="medium")
+        with _jc1:
+            _sel = st.selectbox(L["cat_label"], _cat_labels, key="cat_sel")
+            job_category = CATEGORY_KEYS[_cat_labels.index(_sel)]
+            st.session_state["_jcat"] = job_category
+        with _jc2:
+            job_description = st.text_area(
+                L["jd_label"], height=120,
+                placeholder=L["jd_placeholder"], key="jd_text",
+                label_visibility="visible",
+            )
+            st.session_state["_jdesc"] = job_description
+        st.markdown("<div style='height:4px'></div>", unsafe_allow_html=True)
 
     run_labels = {"cover": L["run_cover"], "cv": L["run_cv"], "essay": L["run_essay"]}
     clicked = st.button(run_labels[mode], type="primary", use_container_width=True, key=f"run_{mode}")
