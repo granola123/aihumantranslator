@@ -53,7 +53,7 @@ L_ALL = {
         "tab_cv":          "📄  CV / 이력서",
         "tab_essay":       "✍️  에세이",
         "banner_cover":    "자소서 모드",
-        "banner_cover_d":  "사이드바에서 채용 공고를 입력하면 <strong>ATS 키워드 최적화</strong>까지 함께 진행됩니다. AI가 쓴 것 같은 흔적을 제거하고 인간적인 문체로 바꿉니다.",
+        "banner_cover_d":  "우측에 채용 공고를 입력하면 <strong>ATS 키워드 최적화</strong>까지 함께 진행됩니다. AI가 쓴 것 같은 흔적을 제거하고 인간적인 문체로 바꿉니다.",
         "banner_cv":       "CV / 이력서 모드",
         "banner_cv_d":     "불릿 포인트 형식을 유지하면서 <strong>수동적 표현을 능동 동사로</strong> 바꿉니다. 문장 길이를 의도적으로 불균일하게 만들어 사람이 직접 쓴 것처럼 보이게 합니다.",
         "banner_essay":    "에세이 모드",
@@ -71,7 +71,7 @@ L_ALL = {
         "run_essay":       "에세이 인간화 시작 →",
         # errors
         "err_no_api":      "서버에 API 키가 설정되지 않았습니다. 관리자에게 문의하세요.",
-        "err_no_jd":       "사이드바에서 채용 공고(JD)를 입력해주세요.",
+        "err_no_jd":       "채용 공고(JD)를 우측 입력란에 붙여넣어 주세요.",
         "err_no_text":     "텍스트를 입력해주세요.",
         # progress
         "step1":           "경험·키워드 추출 중",
@@ -117,6 +117,9 @@ L_ALL = {
         "doc_cover":       "자기소개서",
         "doc_cv":          "이력서/CV",
         "doc_essay":       "개인 에세이",
+        "jd_section_title": "채용 공고 입력 (JD)",
+        "jd_optional":     "자소서 모드에서 ATS 키워드 최적화에 사용됩니다 (선택)",
+        "cat_label":       "직무 분야",
         "beta_title":      "베타 서비스 안내",
         "beta_body":       "현재 베타 버전으로 운영 중입니다. AI 인간화 결과가 100% 완벽하지 않을 수 있으며, 일부 문장은 여전히 AI가 작성한 것처럼 감지될 수 있습니다. 결과물을 반드시 직접 검토 후 사용해 주세요.",
     },
@@ -152,7 +155,7 @@ L_ALL = {
         "tab_cv":          "📄  CV / Resume",
         "tab_essay":       "✍️  Essay",
         "banner_cover":    "Cover Letter Mode",
-        "banner_cover_d":  "Add a job description in the sidebar to enable <strong>ATS keyword optimization</strong>. Removes AI-written patterns and rewrites in a genuine human voice.",
+        "banner_cover_d":  "Add a job description in the right panel to enable <strong>ATS keyword optimization</strong>. Removes AI-written patterns and rewrites in a genuine human voice.",
         "banner_cv":       "CV / Resume Mode",
         "banner_cv_d":     "Preserves bullet-point formatting while converting <strong>passive expressions to strong action verbs</strong>. Intentionally varies sentence length to read like a real person wrote it.",
         "banner_essay":    "Essay Mode",
@@ -216,6 +219,9 @@ L_ALL = {
         "doc_cover":       "Cover Letter",
         "doc_cv":          "Resume/CV",
         "doc_essay":       "Personal Essay",
+        "jd_section_title": "Job Description (JD)",
+        "jd_optional":     "Used for ATS keyword optimization in Cover Letter mode (optional)",
+        "cat_label":       "Job Field",
         "beta_title":      "Beta Notice",
         "beta_body":       "This tool is currently in beta. Humanization results may not be 100% perfect — some sentences may still be flagged as AI-written by detection tools. Please review all output carefully before use.",
     },
@@ -226,151 +232,141 @@ L_ALL = {
 # ══════════════════════════════════════════════════════════════════════════════
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; }
 html, body, [class*="css"] { font-family: 'Inter', 'Noto Sans KR', sans-serif !important; }
 
-.stApp { background: #FAFAF8; }
-.block-container { padding: 2.5rem 2.5rem 5rem !important; max-width: 1200px !important; }
+.stApp { background: #F7F8FC; }
+.block-container { padding: 2rem 2.5rem 5rem !important; max-width: 1280px !important; }
 
+/* ── Sidebar ── */
 section[data-testid="stSidebar"] {
     background: #FFFFFF !important;
-    border-right: 1px solid #EBEBEA !important;
+    border-right: 1px solid #E2E8F0 !important;
 }
 section[data-testid="stSidebar"] .block-container { padding: 2rem 1.25rem !important; }
 
-/* tabs */
+/* ── Tabs ── */
 div[data-testid="stTabs"] > div:first-child {
-    border-bottom: 2px solid #EBEBEA !important; gap: 0 !important; margin-bottom: 28px !important;
+    border-bottom: 2px solid #E2E8F0 !important;
+    gap: 0 !important; margin-bottom: 24px !important;
 }
 div[data-testid="stTabs"] button[data-baseweb="tab"] {
-    font-size: 15px !important; font-weight: 600 !important; color: #9B9790 !important;
-    padding: 12px 22px !important; border-radius: 0 !important; background: transparent !important;
+    font-size: 14px !important; font-weight: 600 !important; color: #94A3B8 !important;
+    padding: 11px 20px !important; border-radius: 0 !important; background: transparent !important;
     border: none !important; border-bottom: 3px solid transparent !important;
     margin-bottom: -2px !important; transition: all 0.18s !important;
 }
 div[data-testid="stTabs"] button[data-baseweb="tab"]:hover {
-    color: #1A1915 !important; background: #F5F4F1 !important;
+    color: #1B3A6B !important; background: #EEF2FA !important;
 }
 div[data-testid="stTabs"] button[aria-selected="true"][data-baseweb="tab"] {
-    color: #1A1915 !important; border-bottom-color: #4F46E5 !important;
+    color: #1B3A6B !important; border-bottom-color: #1B3A6B !important;
+    font-weight: 700 !important;
 }
 div[data-testid="stTabs"] div[role="tabpanel"] { padding-top: 0 !important; }
 
-/* textarea */
+/* ── Textarea ── */
 div[data-testid="stTextArea"] textarea {
-    background: #FFFFFF !important; color: #1A1915 !important;
-    border: 1.5px solid #DDDCDA !important; border-radius: 12px !important;
+    background: #FFFFFF !important; color: #1E293B !important;
+    border: 1.5px solid #CBD5E1 !important; border-radius: 10px !important;
     font-family: 'Inter', 'Noto Sans KR', sans-serif !important;
     font-size: 14.5px !important; line-height: 1.75 !important;
     padding: 14px 16px !important; resize: vertical !important;
     transition: border-color 0.18s, box-shadow 0.18s !important;
 }
 div[data-testid="stTextArea"] textarea:focus {
-    border-color: #4F46E5 !important;
-    box-shadow: 0 0 0 3px rgba(79,70,229,0.10) !important; outline: none !important;
+    border-color: #1B3A6B !important;
+    box-shadow: 0 0 0 3px rgba(27,58,107,0.10) !important; outline: none !important;
 }
 div[data-testid="stTextArea"] label {
-    font-size: 13px !important; font-weight: 600 !important;
-    color: #5C5A55 !important; margin-bottom: 6px !important;
+    font-size: 13px !important; font-weight: 700 !important;
+    color: #374151 !important; margin-bottom: 6px !important;
 }
 
-/* text input */
-div[data-testid="stTextInput"] input {
-    background: #F7F6F3 !important; color: #1A1915 !important;
-    border: 1.5px solid #DDDCDA !important; border-radius: 10px !important;
-    font-size: 14px !important; padding: 10px 12px !important; transition: all 0.18s !important;
-}
-div[data-testid="stTextInput"] input:focus {
-    background: #fff !important; border-color: #4F46E5 !important;
-    box-shadow: 0 0 0 3px rgba(79,70,229,0.10) !important;
-}
-div[data-testid="stTextInput"] label {
-    font-size: 12px !important; font-weight: 700 !important; color: #5C5A55 !important;
-    text-transform: uppercase !important; letter-spacing: 0.5px !important;
-}
-
-/* selectbox */
+/* ── Selectbox ── */
 div[data-testid="stSelectbox"] > div > div {
-    background: #F7F6F3 !important; border: 1.5px solid #DDDCDA !important;
-    border-radius: 10px !important; color: #1A1915 !important; font-size: 14px !important;
+    background: #FFFFFF !important; border: 1.5px solid #CBD5E1 !important;
+    border-radius: 10px !important; color: #1E293B !important; font-size: 14px !important;
     transition: border-color 0.18s !important;
 }
 div[data-testid="stSelectbox"] label {
-    font-size: 12px !important; font-weight: 700 !important; color: #5C5A55 !important;
-    text-transform: uppercase !important; letter-spacing: 0.5px !important;
+    font-size: 13px !important; font-weight: 700 !important; color: #374151 !important;
+    letter-spacing: 0.2px !important;
 }
 
-/* primary button */
+/* ── Primary button ── */
 .stButton > button[kind="primary"] {
-    background: #1A1915 !important; color: #FFFFFF !important;
-    border: none !important; border-radius: 12px !important;
-    padding: 15px 28px !important; font-size: 15px !important;
+    background: #1B3A6B !important; color: #FFFFFF !important;
+    border: none !important; border-radius: 10px !important;
+    padding: 14px 28px !important; font-size: 15px !important;
     font-weight: 700 !important; letter-spacing: -0.2px !important;
     transition: all 0.18s !important; height: auto !important;
+    box-shadow: 0 2px 8px rgba(27,58,107,0.18) !important;
 }
 .stButton > button[kind="primary"]:hover {
-    background: #2D2C28 !important; transform: translateY(-1px) !important;
+    background: #163060 !important; transform: translateY(-1px) !important;
+    box-shadow: 0 4px 12px rgba(27,58,107,0.25) !important;
 }
 .stButton > button[kind="primary"]:active { transform: translateY(0) !important; }
 
-/* secondary button */
+/* ── Secondary button ── */
 .stButton > button[kind="secondary"] {
-    background: #FFFFFF !important; color: #5C5A55 !important;
-    border: 1.5px solid #DDDCDA !important; border-radius: 10px !important;
+    background: #FFFFFF !important; color: #475569 !important;
+    border: 1.5px solid #CBD5E1 !important; border-radius: 10px !important;
     font-size: 14px !important; font-weight: 600 !important;
     padding: 12px 20px !important; transition: all 0.18s !important; height: auto !important;
 }
 .stButton > button[kind="secondary"]:hover {
-    border-color: #1A1915 !important; color: #1A1915 !important; background: #F5F4F1 !important;
+    border-color: #1B3A6B !important; color: #1B3A6B !important; background: #EEF2FA !important;
 }
 
-/* download button */
+/* ── Download button ── */
 .stDownloadButton > button {
-    background: #FFFFFF !important; color: #5C5A55 !important;
-    border: 1.5px solid #DDDCDA !important; border-radius: 9px !important;
+    background: #FFFFFF !important; color: #475569 !important;
+    border: 1.5px solid #CBD5E1 !important; border-radius: 9px !important;
     font-size: 13px !important; font-weight: 600 !important;
     padding: 8px 12px !important; transition: all 0.18s !important;
 }
 .stDownloadButton > button:hover {
-    border-color: #1A1915 !important; color: #1A1915 !important; background: #F5F4F1 !important;
+    border-color: #1B3A6B !important; color: #1B3A6B !important; background: #EEF2FA !important;
 }
 
-/* expander */
+/* ── Expander ── */
 div[data-testid="stExpander"] {
-    border: 1.5px solid #EBEBEA !important; border-radius: 12px !important;
+    border: 1.5px solid #E2E8F0 !important; border-radius: 10px !important;
     background: #FFFFFF !important; overflow: hidden !important; box-shadow: none !important;
 }
 div[data-testid="stExpander"] summary {
-    color: #5C5A55 !important; font-weight: 600 !important;
+    color: #475569 !important; font-weight: 600 !important;
     font-size: 13px !important; padding: 12px 16px !important;
 }
-div[data-testid="stExpander"] summary:hover { background: #F7F6F3 !important; }
+div[data-testid="stExpander"] summary:hover { background: #F1F5F9 !important; }
 
-/* progress */
-.stProgress > div > div { background: #EBEBEA !important; border-radius: 99px !important; height: 6px !important; }
-.stProgress > div > div > div { border-radius: 99px !important; height: 6px !important; }
+/* ── Progress ── */
+.stProgress > div > div { background: #E2E8F0 !important; border-radius: 99px !important; height: 6px !important; }
+.stProgress > div > div > div { border-radius: 99px !important; height: 6px !important; background: #1B3A6B !important; }
 
-/* alert */
-div[data-testid="stAlert"] { border-radius: 12px !important; font-size: 14px !important; font-weight: 500 !important; }
+/* ── Alert ── */
+div[data-testid="stAlert"] { border-radius: 10px !important; font-size: 14px !important; font-weight: 500 !important; }
 
-/* scrollbar */
+/* ── Scrollbar ── */
 ::-webkit-scrollbar { width: 5px; height: 5px; }
 ::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: #DDDCDA; border-radius: 99px; }
-::-webkit-scrollbar-thumb:hover { background: #B8B6B2; }
+::-webkit-scrollbar-thumb { background: #CBD5E1; border-radius: 99px; }
+::-webkit-scrollbar-thumb:hover { background: #94A3B8; }
 
-/* language toggle pill */
-.lang-toggle {
-    display: flex; background: #F0EFEC; border-radius: 10px;
-    padding: 3px; gap: 3px; margin-bottom: 20px;
+/* ── Metric ── */
+div[data-testid="stMetric"] {
+    background: #FFFFFF !important; border: 1px solid #E2E8F0 !important;
+    border-radius: 10px !important; padding: 14px 16px !important;
 }
-.lang-btn {
-    flex: 1; border: none; cursor: pointer; border-radius: 7px;
-    padding: 8px 0; font-size: 13px; font-weight: 700;
-    transition: all 0.18s; font-family: 'Inter', sans-serif;
-}
+div[data-testid="stMetricLabel"] { font-size: 12px !important; color: #64748B !important; font-weight: 600 !important; }
+div[data-testid="stMetricValue"] { font-size: 24px !important; color: #1B3A6B !important; font-weight: 800 !important; }
+
+/* ── Radio ── */
+div[data-testid="stRadio"] label { font-size: 14px !important; color: #374151 !important; font-weight: 500 !important; }
 </style>
 """, unsafe_allow_html=True)
 
@@ -385,6 +381,15 @@ ACTION_VERBS = {
     "Product Management": ["Prioritized","Collaborated","Shipped","Defined","Validated","Iterated","Championed"],
     "Data / AI":          ["Modeled","Trained","Predicted","Visualized","Extracted","Transformed","Benchmarked"],
     "Operations / HR":    ["Coordinated","Implemented","Facilitated","Reduced","Improved","Managed","Standardized"],
+}
+
+CATEGORY_KEYS = [
+    "Strategy / Finance", "Marketing", "Engineering",
+    "Product Management", "Data / AI", "Operations / HR",
+]
+CATEGORY_LABELS = {
+    "ko": ["전략 / 재무", "마케팅", "개발 / 엔지니어링", "제품 관리", "데이터 / AI", "운영 / 인사"],
+    "en": ["Strategy / Finance", "Marketing", "Engineering", "Product Management", "Data / AI", "Operations / HR"],
 }
 
 TAB_META = {
@@ -667,18 +672,7 @@ with st.sidebar:
 </div>
 """, unsafe_allow_html=True)
 
-    # Job category
-    st.markdown(f'<p style="font-size:11px;font-weight:700;color:#9B9790;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:6px">{L["job_category"]}</p>', unsafe_allow_html=True)
-    job_category = st.selectbox("cat", list(ACTION_VERBS.keys()), label_visibility="collapsed")
 
-    # JD
-    st.markdown("<div style='height:12px'></div>", unsafe_allow_html=True)
-    st.markdown(f'<p style="font-size:11px;font-weight:700;color:#9B9790;text-transform:uppercase;letter-spacing:0.6px;margin-bottom:6px">{L["jd_label"]}</p>', unsafe_allow_html=True)
-    st.markdown(f'<p style="font-size:11px;color:#B8B6B2;margin-bottom:6px">{L["jd_hint"]}</p>', unsafe_allow_html=True)
-    job_description = st.text_area("jd", height=200,
-        placeholder=L["jd_placeholder"], label_visibility="collapsed")
-
-    st.markdown("<div style='height:24px'></div>", unsafe_allow_html=True)
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -707,49 +701,73 @@ st.markdown(f"""
 """, unsafe_allow_html=True)
 
 st.markdown(f"""
-<div style="margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid #EBEBEA">
-  <div style="display:flex;align-items:center;gap:12px">
-    <div style="width:40px;height:40px;background:#1A1915;
+<div style="margin-bottom:24px;padding-bottom:20px;border-bottom:1.5px solid #E2E8F0">
+  <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+    <div style="width:42px;height:42px;background:#1B3A6B;
       border-radius:10px;display:flex;align-items:center;justify-content:center;
-      font-size:18px;flex-shrink:0;color:#fff">✦</div>
-    <h1 style="font-size:28px;font-weight:800;color:#1A1915;letter-spacing:-0.6px;margin:0">
+      font-size:18px;flex-shrink:0;color:#fff;letter-spacing:0">✦</div>
+    <h1 style="font-size:26px;font-weight:800;color:#1E293B;letter-spacing:-0.5px;margin:0;line-height:1.2">
       {L['page_title']}
     </h1>
   </div>
-</div>
-
-<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:28px">
-  <div style="background:#FFFFFF;border:1.5px solid #DDDCDA;border-radius:10px;padding:16px 18px">
-    <div style="font-size:18px;margin-bottom:8px">✦</div>
-    <div style="font-size:13px;font-weight:700;color:#1A1915;margin-bottom:4px">{L['card_humanizer']}</div>
-    <div style="font-size:11px;color:#9B9790;line-height:1.5">{L['card_h_desc']}</div>
-    <div style="margin-top:10px;font-size:11px;font-weight:600;color:#5C5A55">{L['card_h_cta']} →</div>
-  </div>
-  <div style="background:#FFFFFF;border:1.5px solid #DDDCDA;border-radius:10px;padding:16px 18px">
-    <div style="font-size:18px;margin-bottom:8px">🌐</div>
-    <div style="font-size:13px;font-weight:700;color:#1A1915;margin-bottom:4px">{L['card_trans']}</div>
-    <div style="font-size:11px;color:#9B9790;line-height:1.5">{L['card_t_desc']}</div>
-    <div style="margin-top:10px;font-size:11px;font-weight:600;color:#5C5A55">{L['card_t_cta']} →</div>
-  </div>
-  <a href="/GPA_Calculator" target="_self" style="text-decoration:none">
-    <div style="background:#FFFFFF;border:1.5px solid #DDDCDA;border-radius:10px;padding:16px 18px;
-      cursor:pointer;transition:border-color 0.15s;height:100%;box-sizing:border-box"
-      onmouseenter="this.style.borderColor='#1A1915'" onmouseleave="this.style.borderColor='#DDDCDA'">
-      <div style="font-size:18px;margin-bottom:8px">🎓</div>
-      <div style="font-size:13px;font-weight:700;color:#1A1915;margin-bottom:4px">{L['card_gpa']}</div>
-      <div style="font-size:11px;color:#9B9790;line-height:1.5">{L['card_g_desc']}</div>
-      <div style="margin-top:10px;font-size:11px;font-weight:600;color:#5C5A55">{L['card_g_cta']} →</div>
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px">
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;
+      border-left:3px solid #1B3A6B">
+      <div style="font-size:12px;font-weight:700;color:#1B3A6B;text-transform:uppercase;
+        letter-spacing:0.5px;margin-bottom:4px">{L['card_humanizer']}</div>
+      <div style="font-size:12px;color:#64748B;line-height:1.5">{L['card_h_desc']}</div>
     </div>
-  </a>
+    <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;
+      border-left:3px solid #0E7490">
+      <div style="font-size:12px;font-weight:700;color:#0E7490;text-transform:uppercase;
+        letter-spacing:0.5px;margin-bottom:4px">🌐 {L['card_trans']}</div>
+      <div style="font-size:12px;color:#64748B;line-height:1.5">{L['card_t_desc']}</div>
+    </div>
+    <a href="/GPA_Calculator" target="_self" style="text-decoration:none">
+      <div style="background:#FFFFFF;border:1px solid #E2E8F0;border-radius:10px;padding:14px 16px;
+        border-left:3px solid #047857;cursor:pointer;transition:background 0.15s;height:100%"
+        onmouseenter="this.style.background='#F0FDF4'" onmouseleave="this.style.background='#FFFFFF'">
+        <div style="font-size:12px;font-weight:700;color:#047857;text-transform:uppercase;
+          letter-spacing:0.5px;margin-bottom:4px">🎓 {L['card_gpa']}</div>
+        <div style="font-size:12px;color:#64748B;line-height:1.5">{L['card_g_desc']}</div>
+      </div>
+    </a>
+  </div>
 </div>
 """, unsafe_allow_html=True)
 
 # ══════════════════════════════════════════════════════════════════════════════
-# TABS
+# MAIN LAYOUT: tabs (left) + JD panel (right)
 # ══════════════════════════════════════════════════════════════════════════════
-tab_cover, tab_cv, tab_essay = st.tabs([
-    L["tab_cover"], L["tab_cv"], L["tab_essay"],
-])
+_lang = st.session_state.lang
+_cat_labels = CATEGORY_LABELS[_lang]
+
+# JD panel widgets rendered first so variables are ready before tabs
+_main_col, _jd_col = st.columns([3, 2], gap="large")
+
+with _jd_col:
+    st.markdown(f"""
+<div style="background:#F4F6FB;border:1.5px solid #D1D9E8;border-radius:14px;padding:22px 20px">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+    <span style="font-size:20px">📋</span>
+    <span style="font-size:15px;font-weight:800;color:#1B3A6B;letter-spacing:-0.3px">{L['jd_section_title']}</span>
+  </div>
+  <p style="font-size:12px;color:#6B7A99;margin:0 0 18px">{L['jd_optional']}</p>
+</div>""", unsafe_allow_html=True)
+    st.markdown("<div style='height:-14px'></div>", unsafe_allow_html=True)
+    _sel_label = st.selectbox(
+        L["cat_label"], _cat_labels, key="cat_sel",
+    )
+    job_category = CATEGORY_KEYS[_cat_labels.index(_sel_label)]
+    job_description = st.text_area(
+        L["jd_label"], height=340,
+        placeholder=L["jd_placeholder"], key="jd_text",
+    )
+
+with _main_col:
+    tab_cover, tab_cv, tab_essay = st.tabs([
+        L["tab_cover"], L["tab_cv"], L["tab_essay"],
+    ])
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -1149,17 +1167,17 @@ def tab_info_banner(icon, title, desc, bg, text_col, sub_col):
   </div>
 </div>""", unsafe_allow_html=True)
 
-with tab_cover:
-    m = TAB_META["cover"]
-    tab_info_banner("📝", L["banner_cover"], L["banner_cover_d"], m["info_bg"], m["info_text"], m["info_sub"])
-    render_tab("cover", m["color"], L, job_description, job_category)
+    with tab_cover:
+        m = TAB_META["cover"]
+        tab_info_banner("📝", L["banner_cover"], L["banner_cover_d"], m["info_bg"], m["info_text"], m["info_sub"])
+        render_tab("cover", m["color"], L, job_description, job_category)
 
-with tab_cv:
-    m = TAB_META["cv"]
-    tab_info_banner("📄", L["banner_cv"], L["banner_cv_d"], m["info_bg"], m["info_text"], m["info_sub"])
-    render_tab("cv", m["color"], L, job_description, job_category)
+    with tab_cv:
+        m = TAB_META["cv"]
+        tab_info_banner("📄", L["banner_cv"], L["banner_cv_d"], m["info_bg"], m["info_text"], m["info_sub"])
+        render_tab("cv", m["color"], L, job_description, job_category)
 
-with tab_essay:
-    m = TAB_META["essay"]
-    tab_info_banner("✍️", L["banner_essay"], L["banner_essay_d"], m["info_bg"], m["info_text"], m["info_sub"])
-    render_tab("essay", m["color"], L, job_description, job_category)
+    with tab_essay:
+        m = TAB_META["essay"]
+        tab_info_banner("✍️", L["banner_essay"], L["banner_essay_d"], m["info_bg"], m["info_text"], m["info_sub"])
+        render_tab("essay", m["color"], L, job_description, job_category)
