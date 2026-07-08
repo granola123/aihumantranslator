@@ -70,6 +70,7 @@ L_ALL = {
         "run_cv":          "CV 인간화 시작 →",
         "run_essay":       "에세이 인간화 시작 →",
         # errors
+        "footer_contact":    "문의하기",
         "err_no_api":      "서버에 API 키가 설정되지 않았습니다. 관리자에게 문의하세요.",
         "err_no_jd":       "채용 공고(JD)를 우측 입력란에 붙여넣어 주세요.",
         "err_no_text":     "텍스트를 입력해주세요.",
@@ -1160,3 +1161,24 @@ with tab_essay:
     m = TAB_META["essay"]
     tab_info_banner("✍️", L["banner_essay"], L["banner_essay_d"], m["info_bg"], m["info_text"], m["info_sub"])
     render_tab("essay", m["color"], L, job_description, job_category)
+
+# ══════════════════════════════════════════════════════════════════════════════
+# FOOTER
+# ══════════════════════════════════════════════════════════════════════════════
+st.markdown("<div style='height:40px'></div>", unsafe_allow_html=True)
+st.markdown(f"""
+<div style="border-top:1px solid #E2E8F0;padding-top:20px;margin-top:10px;
+  text-align:center">
+  <p style="font-size:12px;color:#94A3B8;margin:0 0 4px">
+    {L.get('footer_contact', '문의')} &nbsp;·&nbsp;
+    <a href="mailto:footballguide549@gmail.com"
+       style="color:#1B3A6B;text-decoration:none;font-weight:600">
+      footballguide549@gmail.com
+    </a>
+  </p>
+  <p style="font-size:11px;color:#CBD5E1;margin:0">
+    © 2025 Humanize AI · Student Tools Suite
+  </p>
+</div>
+""", unsafe_allow_html=True)
+
